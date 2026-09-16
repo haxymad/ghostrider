@@ -17,6 +17,7 @@ OPCODES = {
     'JUMP':         31, 'JUMP_IF_FALSE':32, 'JUMP_IF_TRUE': 33,
     'NOP':          34, 'INDEX':        35, 'SET_INDEX':    36,
     'SHL':          48, 'SHR':          49,
+    'DUP':          50,
 }
 
 BIN_OPS = {
@@ -314,9 +315,26 @@ class Emitter:
 
         elif tag == 'binop':
             _, op, left, right = expr
-            self.compile_expr(left)
-            self.compile_expr(right)
-            self.emit(BIN_OPS[op])
+            if op == 'and':
+                self.compile_expr(left)
+                self.emit('DUP')
+                jmp_false = self.here()
+                self.emit('JUMP_IF_FALSE', 0)
+                self.emit('POP')
+                self.compile_expr(right)
+                self.patch(jmp_false, 'JUMP_IF_FALSE', self.here())
+            elif op == 'or':
+                self.compile_expr(left)
+                self.emit('DUP')
+                jmp_true = self.here()
+                self.emit('JUMP_IF_TRUE', 0)
+                self.emit('POP')
+                self.compile_expr(right)
+                self.patch(jmp_true, 'JUMP_IF_TRUE', self.here())
+            else:
+                self.compile_expr(left)
+                self.compile_expr(right)
+                self.emit(BIN_OPS[op])
 
         elif tag == 'unary':
             _, op, operand = expr

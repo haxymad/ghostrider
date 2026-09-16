@@ -374,6 +374,10 @@ class JockeyVM:
         elif op == 34:   # NOP
             self.pc += 1
 
+        elif op == 50:   # DUP
+            self.stack.append(self.stack[-1])
+            self.pc += 1
+
         elif op == 35:   # INDEX
             idx = self.stack.pop()
             obj = self.stack.pop()
