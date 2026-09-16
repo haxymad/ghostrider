@@ -24,9 +24,12 @@ call :cc src\vm.c             || goto :fail
 call :cc src\value.c          || goto :fail
 call :cc src\loader.c         || goto :fail
 call :cc src\builtins.c       || goto :fail
+call :cc src\builtins\stub.c  || goto :fail
 
 echo linking runner...
-cl /nologo kernel32.lib /Feout\jockey_runner.exe obj\jockey_runner.obj obj\vm.obj obj\value.obj obj\loader.obj obj\builtins.obj
+cl /nologo kernel32.lib /Feout\jockey_runner.exe ^
+   obj\jockey_runner.obj obj\vm.obj obj\value.obj obj\loader.obj ^
+   obj\builtins.obj obj\stub.obj
 if errorlevel 1 goto :fail
 
 echo.

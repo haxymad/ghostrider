@@ -1,27 +1,42 @@
-/* ──────────────────────────────────────────────────────────────────────
- * Compile-time registry of all builtins.
- *
- * Each BUILTINS_* array is defined in its own translation unit. The linker
- * only pulls in an object file when a symbol from that file is referenced
- * somewhere else in the binary.
- *
- * In the runner build, only the minimal tables below are referenced from
- * builtins_call(), so the heavy builtins (net, kernel, process, anti, ...)
- * are dropped from the runner binary and their C2-related strings never
- * appear in its import table or string pool.
- * ────────────────────────────────────────────────────────────────────── */
-
+/* builtins.c — dispatch only; arrays live in their own translation units */
 #include "jky_builtins.h"
+#include <string.h>
 
-const Builtin BUILTINS_PURE[]   = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_SYSTEM[] = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_FS[]     = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_DATA[]   = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_CRYPTO[] = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_KERNEL[] = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_PROCESS[]= { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_MEMORY[] = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_NET[]    = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_CRED[]   = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_ANTI[]   = { { NULL, 0, 0, NULL } };
-const Builtin BUILTINS_UTIL[]   = { { NULL, 0, 0, NULL } };
+static const Builtin *TABLES[] = {
+    BUILTINS_PURE,
+    BUILTINS_SYSTEM,
+    BUILTINS_FS,
+    BUILTINS_DATA,
+    BUILTINS_CRYPTO,
+    BUILTINS_KERNEL,
+    BUILTINS_PROCESS,
+    BUILTINS_MEMORY,
+    BUILTINS_NET,
+    BUILTINS_CRED,
+    BUILTINS_ANTI,
+    BUILTINS_UTIL,
+};
+static const int N = sizeof(TABLES) / sizeof(TABLES[0]);
+
+BuiltinResult builtin_call(VM *vm, const char *name,
+                           Value *args, int argc, Value *out) {
+    for (int t = 0; t < N; t++) {
+        const Builtin *tbl = TABLES[t];
+        for (int i = 0; tbl[i].name != NULL; i++) {
+            if (strcmp(tbl[i].name, name) != 0) continue;
+            if (argc < tbl[i].min_args) { value_set_error("%s: too few arguments", name); return BUILTIN_ERROR; }
+            if (tbl[i].max_args >= 0 && argc > tbl[i].max_args) { value_set_error("%s: too many arguments", name); return BUILTIN_ERROR; }
+            return tbl[i].fn(vm, args, argc, out);
+        }
+    }
+    return BUILTIN_NOT_FOUND;
+}
+
+int builtin_exists(const char *name) {
+    for (int t = 0; t < N; t++) {
+        const Builtin *tbl = TABLES[t];
+        for (int i = 0; tbl[i].name != NULL; i++)
+            if (strcmp(tbl[i].name, name) == 0) return 1;
+    }
+    return 0;
+}
