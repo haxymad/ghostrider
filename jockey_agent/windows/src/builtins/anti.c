@@ -63,7 +63,7 @@ static BuiltinResult bi_anti_sandbox(VM *vm, Value *a, int c, Value *out)
     (void)vm; (void)a; (void)c;
     int detected = 0;
     DWORD t1 = GetTickCount();
-    Sleep;
+    Sleep(4000);
     DWORD t2 = GetTickCount();
 
     if ((int)(t2 - t1) < 4000)
