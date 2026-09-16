@@ -295,6 +295,20 @@ class JockeyVM:
             self.stack.append(self._bitop(a, b, lambda x, y: x ^ y))
             self.pc += 1
 
+        elif op == 48:   # SHL
+            b = self.stack.pop(); a = self.stack.pop()
+            if not (isinstance(a, int) and isinstance(b, int)):
+                raise RuntimeError_("shift requires int operands")
+            self.stack.append(a << b)
+            self.pc += 1
+
+        elif op == 49:   # SHR
+            b = self.stack.pop(); a = self.stack.pop()
+            if not (isinstance(a, int) and isinstance(b, int)):
+                raise RuntimeError_("shift requires int operands")
+            self.stack.append(a >> b)
+            self.pc += 1
+
         elif op == 25:   # CALL
             self._op_call(a1, a2)
 

@@ -1,0 +1,295 @@
+# Jockey Language — Full Semantics Test Suite
+# Covers: lexer, parser, runtime, control flow, data structures, functions, operators
+
+# ──────────────────────────────────────────────
+# 1. PRINT + STRINGS
+# ──────────────────────────────────────────────
+print("hello world")
+print("")
+print("tab\there\nnewline")
+print("escaped quote: \"hello\"")
+print('single quotes work too')
+print("concat" + " " + "works")
+print(1 + 2)
+
+# ──────────────────────────────────────────────
+# 2. NUMBERS (int + float)
+# ──────────────────────────────────────────────
+print(42)
+print(3.14)
+print(0)
+print(-7)
+print(1000000)
+
+# ──────────────────────────────────────────────
+# 3. BOOLEANS + NONE
+# ──────────────────────────────────────────────
+print(true)
+print(false)
+print(none)
+
+# ──────────────────────────────────────────────
+# 4. VARIABLES (let + reassign)
+# ──────────────────────────────────────────────
+let x = 10
+let y = 20
+let z = x + y
+print(z)
+x = 99
+print(x)
+
+# ──────────────────────────────────────────────
+# 5. ARITHMETIC OPERATORS
+# ──────────────────────────────────────────────
+print(1 + 2)
+print(10 - 3)
+print(4 * 5)
+print(15 / 4)
+print(10 % 3)
+print(-5)
+
+# ──────────────────────────────────────────────
+# 6. COMPARISON OPERATORS
+# ──────────────────────────────────────────────
+print(1 == 1)
+print(1 != 2)
+print(2 < 5)
+print(5 > 2)
+print(3 <= 3)
+print(4 >= 5)
+
+# ──────────────────────────────────────────────
+# 7. LOGICAL OPERATORS
+# ──────────────────────────────────────────────
+print(true and true)
+print(true and false)
+print(false or true)
+print(not true)
+print(not false)
+print(1 < 2 and 3 < 4)
+print(1 > 2 or 3 < 4)
+
+# ──────────────────────────────────────────────
+# 8. BITWISE OPERATORS
+# ──────────────────────────────────────────────
+print(5 & 3)
+print(5 | 3)
+print(5 ^ 3)
+print(~5)
+print(1 << 3)
+print(16 >> 2)
+
+# ──────────────────────────────────────────────
+# 9. STRING INDEXING
+# ──────────────────────────────────────────────
+let s = "jockey"
+print(s[0])
+print(s[1])
+print(s[6])
+
+# ──────────────────────────────────────────────
+# 10. LIST CREATION + INDEXING
+# ──────────────────────────────────────────────
+let nums = [1, 2, 3, 4, 5]
+print(nums[0])
+print(nums[4])
+nums[2] = 99
+print(nums[2])
+
+# ──────────────────────────────────────────────
+# 11. DICT CREATION + KEY ACCESS
+# ──────────────────────────────────────────────
+let d = {"name": "jockey", "ver": 1}
+print(d["name"])
+print(d["ver"])
+d["ver"] = 2
+print(d["ver"])
+
+# ──────────────────────────────────────────────
+# 12. LEN BUILTIN
+# ──────────────────────────────────────────────
+print(len("hello"))
+print(len([1, 2, 3]))
+print(len({"a": 1, "b": 2}))
+
+# ──────────────────────────────────────────────
+# 13. IF / ELIF / ELSE
+# ──────────────────────────────────────────────
+let n = 42
+if n > 100 {
+    print("big")
+} elif n > 10 {
+    print("medium")
+} else {
+    print("small")
+}
+
+# ──────────────────────────────────────────────
+# 14. WHILE LOOP
+# ──────────────────────────────────────────────
+let i = 0
+while i < 5 {
+    print(i)
+    i = i + 1
+}
+
+# ──────────────────────────────────────────────
+# 15. FOR-IN LOOP
+# ──────────────────────────────────────────────
+let items = ["a", "b", "c"]
+for item in items {
+    print(item)
+}
+
+# ──────────────────────────────────────────────
+# 16. BREAK + CONTINUE
+# ──────────────────────────────────────────────
+let j = 0
+while true {
+    if j == 3 {
+        break
+    }
+    if j == 1 {
+        j = j + 1
+        continue
+    }
+    print(j)
+    j = j + 1
+}
+
+# ──────────────────────────────────────────────
+# 17. FUNCTIONS (def, call, return)
+# ──────────────────────────────────────────────
+fn add(a, b) {
+    return a + b
+}
+print(add(2, 3))
+
+fn greet(name) {
+    return "hello, " + name
+}
+print(greet("maker"))
+
+# ──────────────────────────────────────────────
+# 18. RECURSION
+# ──────────────────────────────────────────────
+fn fib(n) {
+    if n <= 1 {
+        return n
+    }
+    return fib(n - 1) + fib(n - 2)
+}
+print(fib(10))
+
+fn factorial(n) {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+print(factorial(6))
+
+# ──────────────────────────────────────────────
+# 19. NESTED FUNCTION CALLS
+# ──────────────────────────────────────────────
+print(add(fib(5), factorial(3)))
+
+# ──────────────────────────────────────────────
+# 20. COMPLEX EXPRESSIONS
+# ──────────────────────────────────────────────
+print((2 + 3) * 4)
+print(10 - (3 + 2))
+print(1 < 2 and 3 > 1 or false)
+
+# ──────────────────────────────────────────────
+# 21. VARIABLE SCOPE
+# ──────────────────────────────────────────────
+let outer = "global"
+fn scope_test() {
+    let outer = "local"
+    return outer
+}
+print(scope_test())
+
+# ──────────────────────────────────────────────
+# 22. NESTED LOOPS
+# ──────────────────────────────────────────────
+let row = 0
+while row < 3 {
+    let col = 0
+    while col < 3 {
+        print(row * 3 + col)
+        col = col + 1
+    }
+    row = row + 1
+}
+
+# ──────────────────────────────────────────────
+# 23. STRING CONCATENATION
+# ──────────────────────────────────────────────
+print("foo" + "bar")
+print("a" + "b" + "c")
+
+# ──────────────────────────────────────────────
+# 24. UNARY NOT
+# ──────────────────────────────────────────────
+print(not false)
+print(not true)
+print(not none)
+
+# ──────────────────────────────────────────────
+# 25. TYPE CHECKS (via comparisons)
+# ──────────────────────────────────────────────
+print(5 == 5.0)
+print(1 == true)
+print(none == none)
+print(none == false)
+
+# ──────────────────────────────────────────────
+# 26. DICT OPERATIONS
+# ──────────────────────────────────────────────
+let obj = {"x": 10, "y": 20}
+print(obj["x"] + obj["y"])
+
+# ──────────────────────────────────────────────
+# 27. LIST OPERATIONS
+# ──────────────────────────────────────────────
+let primes = [2, 3, 5, 7, 11]
+print(primes[0])
+print(primes[1])
+primes[4] = 13
+print(primes[4])
+
+# ──────────────────────────────────────────────
+# 28. MODULO
+# ──────────────────────────────────────────────
+print(10 % 3)
+print(15 % 4)
+print(7 % 7)
+
+# ──────────────────────────────────────────────
+# 29. FUNCTION RETURN VALUES USED IN EXPRESSIONS
+# ──────────────────────────────────────────────
+fn double(x) {
+    return x * 2
+}
+print(double(5) + double(3))
+
+# ──────────────────────────────────────────────
+# 30. CONDITIONAL EXPRESSIONS (via if)
+# ──────────────────────────────────────────────
+let val = 50
+let label
+if val > 100 {
+    label = "high"
+} elif val > 25 {
+    label = "medium"
+} else {
+    label = "low"
+}
+print(label)
+
+# ──────────────────────────────────────────────
+# END OF TEST SUITE
+# ──────────────────────────────────────────────
+print("done")

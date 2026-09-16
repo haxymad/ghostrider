@@ -16,12 +16,15 @@ OPCODES = {
     'GET_ATTR':     28, 'BUILD_ARRAY':  29, 'BUILD_DICT':   30,
     'JUMP':         31, 'JUMP_IF_FALSE':32, 'JUMP_IF_TRUE': 33,
     'NOP':          34, 'INDEX':        35, 'SET_INDEX':    36,
+    'SHL':          48, 'SHR':          49,
 }
 
 BIN_OPS = {
     '+': 'ADD', '-': 'SUB', '*': 'MUL', '/': 'DIV', '%': 'MOD',
     '==': 'EQ', '!=': 'NE', '<': 'LT', '>': 'GT', '<=': 'LE', '>=': 'GE',
     '|': 'BIT_OR', '&': 'BIT_AND', '^': 'BIT_XOR',
+    '<<': 'SHL', '>>': 'SHR',
+    'and': 'AND', 'or': 'OR',
 }
 
 UN_OPS = {'-': 'NEG', '~': 'BIT_NOT', 'not': 'NOT'}
