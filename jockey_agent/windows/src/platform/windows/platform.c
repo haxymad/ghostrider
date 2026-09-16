@@ -37,6 +37,8 @@ int jky_username(char *buf, size_t len) {
 #include <winternl.h>
 #pragma comment(lib, "ntdll.lib")
 
+extern NTSTATUS NTAPI RtlGetVersion(PRTL_OSVERSIONINFOW);
+
 int jky_kernel_version(char *buf, size_t len) {
     RTL_OSVERSIONINFOW vi;
     vi.dwOSVersionInfoSize = sizeof(vi);
