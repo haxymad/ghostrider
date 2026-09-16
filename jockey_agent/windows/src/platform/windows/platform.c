@@ -33,10 +33,14 @@ int jky_username(char *buf, size_t len) {
     return 0;
 }
 
+#include <windows.h>
+#include <winternl.h>
+#pragma comment(lib, "ntdll.lib")
+
 int jky_kernel_version(char *buf, size_t len) {
-    OSVERSIONINFOA vi;
+    RTL_OSVERSIONINFOW vi;
     vi.dwOSVersionInfoSize = sizeof(vi);
-    if (!GetVersionExA(&vi)) { buf[0] = 0; return -1; }
+    if (RtlGetVersion(&vi) != 0) { buf[0] = 0; return -1; }
     snprintf(buf, len, "%lu.%lu.%lu",
              vi.dwMajorVersion, vi.dwMinorVersion, vi.dwBuildNumber);
     buf[len - 1] = 0;
