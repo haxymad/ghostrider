@@ -1,0 +1,1 @@
+savedcmd_Module.symvers :=  /usr/lib/modules/7.0.10-zen1-1-zen/build/scripts/mod/modpost -M    -a    -N  -o Module.symvers -n -T modules.order -i /usr/lib/modules/7.0.10-zen1-1-zen/build/Module.symvers -e 

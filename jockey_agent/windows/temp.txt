@@ -1,0 +1,666 @@
+compiling userspace agent...
+main.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\main.c(37): error C2198: 'void vm_init(VM *,FILE *)': too few arguments for call
+src\main.c(47): error C2198: 'int vm_execute(VM *,Module *)': too few arguments for call
+vm.c
+include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+include\jky_value.h(246): error C2059: syntax error: 'type'
+include\jky_value.h(246): error C2059: syntax error: ')'
+src\vm.c(82): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(82): error C2039: 'vars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(82): error C2198: 'void free(void *)': too few arguments for call
+src\vm.c(83): error C2039: 'vars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(83): error C2198: 'void free(void *)': too few arguments for call
+src\vm.c(108): error C2039: 'vars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(110): error C2561: 'do_call': function must return a value
+src\vm.c(107): note: see declaration of 'do_call'
+src\vm.c(127): error C2065: 'fn': undeclared identifier
+src\vm.c(129): error C2561: 'do_call': function must return a value
+src\vm.c(107): note: see declaration of 'do_call'
+src\vm.c(131): error C2065: 'fn': undeclared identifier
+src\vm.c(131): error C2223: left of '->nparams' must point to struct/union
+src\vm.c(133): error C2065: 'fn': undeclared identifier
+src\vm.c(133): error C2223: left of '->nparams' must point to struct/union
+src\vm.c(133): error C2561: 'do_call': function must return a value
+src\vm.c(107): note: see declaration of 'do_call'
+src\vm.c(137): error C2561: 'do_call': function must return a value
+src\vm.c(107): note: see declaration of 'do_call'
+src\vm.c(143): error C2065: 'fn': undeclared identifier
+src\vm.c(143): error C2223: left of '->code' must point to struct/union
+src\vm.c(144): error C2065: 'fn': undeclared identifier
+src\vm.c(144): error C2223: left of '->code_len' must point to struct/union
+src\vm.c(147): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(147): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(147): error C2198: 'void *calloc(size_t,size_t)': too few arguments for call
+src\vm.c(148): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(148): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(148): error C2198: 'void *calloc(size_t,size_t)': too few arguments for call
+src\vm.c(151): error C2065: 'fn': undeclared identifier
+src\vm.c(151): error C2223: left of '->param_idx' must point to struct/union
+src\vm.c(152): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(154): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(154): error C2198: 'void frame_free(Frame *,int)': too few arguments for call
+src\vm.c(156): error C2561: 'do_call': function must return a value
+src\vm.c(107): note: see declaration of 'do_call'
+src\vm.c(169): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(190): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(190): error C2198: 'void frame_free(Frame *,int)': too few arguments for call
+src\vm.c(206): error C2039: 'consts': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(206): error C2198: 'Value vshare(Value)': too few arguments for call
+src\vm.c(211): error C2039: 'consts': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(227): error C2039: 'consts': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(242): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(262): warning C4013: 'value_add' undefined; assuming extern returning int
+src\vm.c(268): warning C4013: 'value_sub' undefined; assuming extern returning int
+src\vm.c(274): warning C4013: 'value_mul' undefined; assuming extern returning int
+src\vm.c(280): warning C4013: 'value_div' undefined; assuming extern returning int
+src\vm.c(286): warning C4013: 'value_mod' undefined; assuming extern returning int
+src\vm.c(292): warning C4013: 'value_eq' undefined; assuming extern returning int
+src\vm.c(298): warning C4013: 'value_ne' undefined; assuming extern returning int
+src\vm.c(328): warning C4013: 'value_bitop' undefined; assuming extern returning int
+src\vm.c(359): warning C4013: 'value_not' undefined; assuming extern returning int
+src\vm.c(364): warning C4013: 'value_neg' undefined; assuming extern returning int
+src\vm.c(371): error C2561: 'run': function must return a value
+src\vm.c(182): note: see declaration of 'run'
+src\vm.c(385): warning C4013: 'value_index' undefined; assuming extern returning int
+src\vm.c(392): warning C4013: 'value_set_index' undefined; assuming extern returning int
+src\vm.c(396): error C2561: 'run': function must return a value
+src\vm.c(182): note: see declaration of 'run'
+src\vm.c(405): error C2561: 'run': function must return a value
+src\vm.c(182): note: see declaration of 'run'
+src\vm.c(420): error C2561: 'run': function must return a value
+src\vm.c(182): note: see declaration of 'run'
+src\vm.c(428): error C2561: 'run': function must return a value
+src\vm.c(182): note: see declaration of 'run'
+src\vm.c(469): error C2039: 'nvars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(469): error C2198: 'void frame_free(Frame *,int)': too few arguments for call
+src\vm.c(477): error C2039: 'vars': is not a member of 'Program'
+include\jky_value.h(165): note: see declaration of 'Program'
+src\vm.c(487): error C2561: 'run': function must return a value
+src\vm.c(182): note: see declaration of 'run'
+src\vm.c(262): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(268): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(274): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(280): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(286): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(292): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(298): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(304): error C2440: 'initializing': cannot convert from 'Value *' to 'Value'
+src\vm.c(310): error C2440: 'initializing': cannot convert from 'Value *' to 'Value'
+src\vm.c(316): error C2440: 'initializing': cannot convert from 'Value *' to 'Value'
+src\vm.c(322): error C2440: 'initializing': cannot convert from 'Value *' to 'Value'
+src\vm.c(328): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(334): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(340): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(359): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(364): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(379): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(385): error C2440: 'initializing': cannot convert from 'int' to 'Value'
+src\vm.c(495): warning C4133: '=': incompatible types - from 'Module *' to 'Program *'
+value.c
+include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+include\jky_value.h(246): error C2059: syntax error: 'type'
+include\jky_value.h(246): error C2059: syntax error: ')'
+src\value.c(199): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+src\value.c(219): error C2143: syntax error: missing ')' before '*'
+src\value.c(219): error C2143: syntax error: missing '{' before '*'
+src\value.c(219): error C2059: syntax error: 'type'
+src\value.c(219): error C2059: syntax error: ')'
+src\value.c(252): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+src\value.c(255): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+src\value.c(262): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+src\value.c(265): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+src\value.c(313): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+src\value.c(404): error C2040: 'value_cmp': 'Value (Value,Value,int)' differs in levels of indirection from 'Value *(Value,Value,int)'
+src\value.c(442): error C2065: 'OP_BOR': undeclared identifier
+src\value.c(443): error C2065: 'OP_BAND': undeclared identifier
+src\value.c(444): error C2065: 'OP_BXOR': undeclared identifier
+src\value.c(445): error C2065: 'OP_BNOT': undeclared identifier
+src\value.c(442): error C2051: case expression not constant
+src\value.c(443): error C2051: case expression not constant
+src\value.c(444): error C2051: case expression not constant
+src\value.c(445): error C2051: case expression not constant
+src\value.c(455): error C2371: 'value_len': redefinition; different basic types
+include\jky_value.h(240): note: see declaration of 'value_len'
+src\value.c(473): warning C4018: '>=': signed/unsigned mismatch
+src\value.c(497): warning C4018: '>=': signed/unsigned mismatch
+loader.c
+agent.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\agent.c(78): warning C4013: 'open_memstream' undefined; assuming extern returning int
+src\agent.c(78): warning C4047: '=': 'FILE *' differs in levels of indirection from 'int'
+src\agent.c(81): error C2198: 'void vm_init(VM *,FILE *)': too few arguments for call
+src\agent.c(88): error C2198: 'int vm_execute(VM *,Module *)': too few arguments for call
+builtins.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+kernel_bridge.c
+src\kernel_bridge.c(44): error C2065: 'JKY_IOCTL_PING': undeclared identifier
+src\kernel_bridge.c(61): error C2065: 'JKY_IOCTL_HIDE_PID': undeclared identifier
+src\kernel_bridge.c(76): error C2065: 'JKY_IOCTL_UNHIDE_PID': undeclared identifier
+src\kernel_bridge.c(101): error C2065: 'JKY_IOCTL_HIDE_FILE': undeclared identifier
+src\kernel_bridge.c(125): error C2065: 'JKY_IOCTL_UNHIDE_FILE': undeclared identifier
+src\kernel_bridge.c(137): error C2065: 'JKY_IOCTL_GET_ROOT': undeclared identifier
+src\kernel_bridge.c(152): error C2065: 'JKY_IOCTL_KILL_PID': undeclared identifier
+src\kernel_bridge.c(164): error C2065: 'JKY_IOCTL_DISABLE_ETW': undeclared identifier
+src\kernel_bridge.c(176): error C2065: 'JKY_IOCTL_DISABLE_OB_CB': undeclared identifier
+src\kernel_bridge.c(188): error C2065: 'JKY_IOCTL_HIDE_DRIVER': undeclared identifier
+src\kernel_bridge.c(204): error C2065: 'JKY_IOCTL_PROCESS_SHIELD': undeclared identifier
+src\kernel_bridge.c(220): error C2065: 'JKY_IOCTL_SPOOF_PPID': undeclared identifier
+anti.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\anti.c(11): error C2061: syntax error: identifier 'bi_anti_debug'
+src\builtins\anti.c(11): error C2059: syntax error: ';'
+src\builtins\anti.c(11): error C2059: syntax error: '<parameter-list>'
+src\builtins\anti.c(27): error C2061: syntax error: identifier 'bi_anti_vm'
+src\builtins\anti.c(27): error C2059: syntax error: ';'
+src\builtins\anti.c(27): error C2059: syntax error: '<parameter-list>'
+src\builtins\anti.c(60): error C2061: syntax error: identifier 'bi_anti_sandbox'
+src\builtins\anti.c(60): error C2059: syntax error: ';'
+src\builtins\anti.c(60): error C2059: syntax error: '<parameter-list>'
+src\builtins\anti.c(75): error C2061: syntax error: identifier 'bi_anti_edr'
+src\builtins\anti.c(75): error C2059: syntax error: ';'
+src\builtins\anti.c(75): error C2059: syntax error: '<parameter-list>'
+src\builtins\anti.c(113): error C2065: 'bi_anti_debug': undeclared identifier
+src\builtins\anti.c(114): error C2065: 'bi_anti_vm': undeclared identifier
+src\builtins\anti.c(115): error C2065: 'bi_anti_sandbox': undeclared identifier
+src\builtins\anti.c(116): error C2065: 'bi_anti_edr': undeclared identifier
+src\builtins\anti.c(112): error C2099: initializer is not a constant
+system.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\system.c(11): error C2061: syntax error: identifier 'bi_platform'
+src\builtins\system.c(11): error C2059: syntax error: ';'
+src\builtins\system.c(11): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(18): error C2061: syntax error: identifier 'bi_hostname'
+src\builtins\system.c(18): error C2059: syntax error: ';'
+src\builtins\system.c(18): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(27): error C2061: syntax error: identifier 'bi_username'
+src\builtins\system.c(27): error C2059: syntax error: ';'
+src\builtins\system.c(27): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(36): error C2061: syntax error: identifier 'bi_kernel_version'
+src\builtins\system.c(36): error C2059: syntax error: ';'
+src\builtins\system.c(36): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(45): error C2061: syntax error: identifier 'bi_arch'
+src\builtins\system.c(45): error C2059: syntax error: ';'
+src\builtins\system.c(45): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(54): error C2061: syntax error: identifier 'bi_cpus'
+src\builtins\system.c(54): error C2059: syntax error: ';'
+src\builtins\system.c(54): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(61): error C2061: syntax error: identifier 'bi_uptime'
+src\builtins\system.c(61): error C2059: syntax error: ';'
+src\builtins\system.c(61): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(68): error C2061: syntax error: identifier 'bi_memory'
+src\builtins\system.c(68): error C2059: syntax error: ';'
+src\builtins\system.c(68): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(87): error C2061: syntax error: identifier 'bi_time'
+src\builtins\system.c(87): error C2059: syntax error: ';'
+src\builtins\system.c(87): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(94): error C2061: syntax error: identifier 'bi_sleep'
+src\builtins\system.c(94): error C2059: syntax error: ';'
+src\builtins\system.c(94): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(103): error C2061: syntax error: identifier 'bi_env'
+src\builtins\system.c(103): error C2059: syntax error: ';'
+src\builtins\system.c(103): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(132): error C2061: syntax error: identifier 'bi_exec'
+src\builtins\system.c(132): error C2059: syntax error: ';'
+src\builtins\system.c(132): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(163): error C2061: syntax error: identifier 'bi_sysinfo'
+src\builtins\system.c(163): error C2059: syntax error: ';'
+src\builtins\system.c(163): error C2059: syntax error: '<parameter-list>'
+src\builtins\system.c(189): error C2065: 'bi_sysinfo': undeclared identifier
+src\builtins\system.c(190): error C2065: 'bi_platform': undeclared identifier
+src\builtins\system.c(191): error C2065: 'bi_hostname': undeclared identifier
+src\builtins\system.c(192): error C2065: 'bi_username': undeclared identifier
+src\builtins\system.c(193): error C2065: 'bi_kernel_version': undeclared identifier
+src\builtins\system.c(194): error C2065: 'bi_arch': undeclared identifier
+src\builtins\system.c(195): error C2065: 'bi_cpus': undeclared identifier
+src\builtins\system.c(196): error C2065: 'bi_uptime': undeclared identifier
+src\builtins\system.c(197): error C2065: 'bi_memory': undeclared identifier
+src\builtins\system.c(198): error C2065: 'bi_sysinfo': undeclared identifier
+src\builtins\system.c(199): error C2065: 'bi_time': undeclared identifier
+src\builtins\system.c(200): error C2065: 'bi_sleep': undeclared identifier
+src\builtins\system.c(201): error C2065: 'bi_env': undeclared identifier
+src\builtins\system.c(202): error C2065: 'bi_exec': undeclared identifier
+src\builtins\system.c(204): error C2065: 'bi_time': undeclared identifier
+src\builtins\system.c(205): error C2065: 'bi_exec': undeclared identifier
+src\builtins\system.c(206): error C2065: 'bi_env': undeclared identifier
+src\builtins\system.c(188): error C2099: initializer is not a constant
+fs.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\fs.c(11): error C2061: syntax error: identifier 'bi_cwd'
+src\builtins\fs.c(11): error C2059: syntax error: ';'
+src\builtins\fs.c(11): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(20): error C2061: syntax error: identifier 'bi_chdir'
+src\builtins\fs.c(20): error C2059: syntax error: ';'
+src\builtins\fs.c(20): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(28): error C2061: syntax error: identifier 'bi_list_dir'
+src\builtins\fs.c(28): error C2059: syntax error: ';'
+src\builtins\fs.c(28): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(52): error C2061: syntax error: identifier 'bi_read_file'
+src\builtins\fs.c(52): error C2059: syntax error: ';'
+src\builtins\fs.c(52): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(74): error C2061: syntax error: identifier 'bi_fs_write'
+src\builtins\fs.c(74): error C2059: syntax error: ';'
+src\builtins\fs.c(74): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(97): error C2061: syntax error: identifier 'bi_file_exists'
+src\builtins\fs.c(97): error C2059: syntax error: ';'
+src\builtins\fs.c(97): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(105): error C2061: syntax error: identifier 'bi_file_size'
+src\builtins\fs.c(105): error C2059: syntax error: ';'
+src\builtins\fs.c(105): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(113): error C2061: syntax error: identifier 'bi_fs_stat'
+src\builtins\fs.c(113): error C2059: syntax error: ';'
+src\builtins\fs.c(113): error C2059: syntax error: '<parameter-list>'
+src\builtins\fs.c(139): error C2065: 'bi_cwd': undeclared identifier
+src\builtins\fs.c(140): error C2065: 'bi_chdir': undeclared identifier
+src\builtins\fs.c(141): error C2065: 'bi_list_dir': undeclared identifier
+src\builtins\fs.c(142): error C2065: 'bi_read_file': undeclared identifier
+src\builtins\fs.c(143): error C2065: 'bi_fs_write': undeclared identifier
+src\builtins\fs.c(144): error C2065: 'bi_file_exists': undeclared identifier
+src\builtins\fs.c(145): error C2065: 'bi_file_size': undeclared identifier
+src\builtins\fs.c(146): error C2065: 'bi_fs_stat': undeclared identifier
+src\builtins\fs.c(148): error C2065: 'bi_cwd': undeclared identifier
+src\builtins\fs.c(149): error C2065: 'bi_list_dir': undeclared identifier
+src\builtins\fs.c(150): error C2065: 'bi_read_file': undeclared identifier
+src\builtins\fs.c(151): error C2065: 'bi_file_exists': undeclared identifier
+src\builtins\fs.c(152): error C2065: 'bi_file_size': undeclared identifier
+src\builtins\fs.c(153): error C2065: 'bi_fs_stat': undeclared identifier
+src\builtins\fs.c(154): error C2065: 'bi_list_dir': undeclared identifier
+src\builtins\fs.c(155): error C2065: 'bi_file_exists': undeclared identifier
+src\builtins\fs.c(138): error C2099: initializer is not a constant
+process.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\process.c(12): error C2061: syntax error: identifier 'bi_self_pid'
+src\builtins\process.c(12): error C2059: syntax error: ';'
+src\builtins\process.c(12): error C2059: syntax error: '<parameter-list>'
+src\builtins\process.c(19): error C2061: syntax error: identifier 'bi_parent_pid'
+src\builtins\process.c(19): error C2059: syntax error: ';'
+src\builtins\process.c(19): error C2059: syntax error: '<parameter-list>'
+src\builtins\process.c(26): error C2061: syntax error: identifier 'bi_proc_list'
+src\builtins\process.c(26): error C2059: syntax error: ';'
+src\builtins\process.c(26): error C2059: syntax error: '<parameter-list>'
+src\builtins\process.c(55): error C2061: syntax error: identifier 'bi_proc_kill'
+src\builtins\process.c(55): error C2059: syntax error: ';'
+src\builtins\process.c(55): error C2059: syntax error: '<parameter-list>'
+src\builtins\process.c(70): error C2061: syntax error: identifier 'bi_proc_info'
+src\builtins\process.c(70): error C2059: syntax error: ';'
+src\builtins\process.c(70): error C2059: syntax error: '<parameter-list>'
+src\builtins\process.c(104): error C2061: syntax error: identifier 'bi_proc_modules'
+src\builtins\process.c(104): error C2059: syntax error: ';'
+src\builtins\process.c(104): error C2059: syntax error: '<parameter-list>'
+src\builtins\process.c(135): error C2065: 'bi_self_pid': undeclared identifier
+src\builtins\process.c(136): error C2065: 'bi_parent_pid': undeclared identifier
+src\builtins\process.c(137): error C2065: 'bi_proc_list': undeclared identifier
+src\builtins\process.c(138): error C2065: 'bi_proc_kill': undeclared identifier
+src\builtins\process.c(139): error C2065: 'bi_proc_list': undeclared identifier
+src\builtins\process.c(140): error C2065: 'bi_proc_info': undeclared identifier
+src\builtins\process.c(141): error C2065: 'bi_proc_modules': undeclared identifier
+src\builtins\process.c(134): error C2099: initializer is not a constant
+memory.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\memory.c(11): error C2061: syntax error: identifier 'bi_mem_read'
+src\builtins\memory.c(11): error C2059: syntax error: ';'
+src\builtins\memory.c(11): error C2059: syntax error: '<parameter-list>'
+src\builtins\memory.c(40): error C2061: syntax error: identifier 'bi_mem_write'
+src\builtins\memory.c(40): error C2059: syntax error: ';'
+src\builtins\memory.c(40): error C2059: syntax error: '<parameter-list>'
+src\builtins\memory.c(75): error C2061: syntax error: identifier 'bi_mem_strings'
+src\builtins\memory.c(75): error C2059: syntax error: ';'
+src\builtins\memory.c(75): error C2059: syntax error: '<parameter-list>'
+src\builtins\memory.c(119): error C2065: 'bi_mem_read': undeclared identifier
+src\builtins\memory.c(120): error C2065: 'bi_mem_write': undeclared identifier
+src\builtins\memory.c(121): error C2065: 'bi_mem_read': undeclared identifier
+src\builtins\memory.c(122): error C2065: 'bi_mem_strings': undeclared identifier
+src\builtins\memory.c(123): error C2065: 'bi_mem_read': undeclared identifier
+src\builtins\memory.c(124): error C2065: 'bi_mem_strings': undeclared identifier
+src\builtins\memory.c(118): error C2099: initializer is not a constant
+net.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\net.c(17): error C2061: syntax error: identifier 'bi_net_connect'
+src\builtins\net.c(17): error C2059: syntax error: ';'
+src\builtins\net.c(17): error C2059: syntax error: '<parameter-list>'
+src\builtins\net.c(49): error C2061: syntax error: identifier 'bi_net_send'
+src\builtins\net.c(49): error C2059: syntax error: ';'
+src\builtins\net.c(49): error C2059: syntax error: '<parameter-list>'
+src\builtins\net.c(74): error C2061: syntax error: identifier 'bi_net_recv'
+src\builtins\net.c(74): error C2059: syntax error: ';'
+src\builtins\net.c(74): error C2059: syntax error: '<parameter-list>'
+src\builtins\net.c(98): error C2061: syntax error: identifier 'bi_net_close'
+src\builtins\net.c(98): error C2059: syntax error: ';'
+src\builtins\net.c(98): error C2059: syntax error: '<parameter-list>'
+src\builtins\net.c(107): error C2061: syntax error: identifier 'bi_net_resolve'
+src\builtins\net.c(107): error C2059: syntax error: ';'
+src\builtins\net.c(107): error C2059: syntax error: '<parameter-list>'
+src\builtins\net.c(121): error C2061: syntax error: identifier 'bi_net_connections'
+src\builtins\net.c(121): error C2059: syntax error: ';'
+src\builtins\net.c(121): error C2059: syntax error: '<parameter-list>'
+src\builtins\net.c(159): error C2065: 'bi_net_connect': undeclared identifier
+src\builtins\net.c(160): error C2065: 'bi_net_send': undeclared identifier
+src\builtins\net.c(161): error C2065: 'bi_net_recv': undeclared identifier
+src\builtins\net.c(162): error C2065: 'bi_net_close': undeclared identifier
+src\builtins\net.c(163): error C2065: 'bi_net_connections': undeclared identifier
+src\builtins\net.c(164): error C2065: 'bi_net_connections': undeclared identifier
+src\builtins\net.c(165): error C2065: 'bi_net_connections': undeclared identifier
+src\builtins\net.c(166): error C2065: 'bi_net_resolve': undeclared identifier
+src\builtins\net.c(167): error C2065: 'bi_net_resolve': undeclared identifier
+src\builtins\net.c(158): error C2099: initializer is not a constant
+cred.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\cred.c(15): error C2061: syntax error: identifier 'bi_cred_users'
+src\builtins\cred.c(15): error C2059: syntax error: ';'
+src\builtins\cred.c(15): error C2059: syntax error: '<parameter-list>'
+src\builtins\cred.c(38): error C2061: syntax error: identifier 'bi_cred_sessions'
+src\builtins\cred.c(38): error C2059: syntax error: ';'
+src\builtins\cred.c(38): error C2059: syntax error: '<parameter-list>'
+src\builtins\cred.c(66): error C2061: syntax error: identifier 'bi_cred_token'
+src\builtins\cred.c(66): error C2059: syntax error: ';'
+src\builtins\cred.c(66): error C2059: syntax error: '<parameter-list>'
+src\builtins\cred.c(108): error C2065: 'bi_cred_users': undeclared identifier
+src\builtins\cred.c(109): error C2065: 'bi_cred_sessions': undeclared identifier
+src\builtins\cred.c(110): error C2065: 'bi_cred_sessions': undeclared identifier
+src\builtins\cred.c(111): error C2065: 'bi_cred_token': undeclared identifier
+src\builtins\cred.c(112): error C2065: 'bi_cred_sessions': undeclared identifier
+src\builtins\cred.c(113): error C2065: 'bi_cred_sessions': undeclared identifier
+src\builtins\cred.c(114): error C2065: 'bi_cred_sessions': undeclared identifier
+src\builtins\cred.c(115): error C2065: 'bi_cred_sessions': undeclared identifier
+src\builtins\cred.c(107): error C2099: initializer is not a constant
+kernel.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\kernel.c(14): error C2061: syntax error: identifier 'bi_get_root'
+src\builtins\kernel.c(14): error C2059: syntax error: ';'
+src\builtins\kernel.c(14): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(21): error C2061: syntax error: identifier 'bi_hide_pid'
+src\builtins\kernel.c(21): error C2059: syntax error: ';'
+src\builtins\kernel.c(21): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(29): error C2061: syntax error: identifier 'bi_unhide_pid'
+src\builtins\kernel.c(29): error C2059: syntax error: ';'
+src\builtins\kernel.c(29): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(37): error C2061: syntax error: identifier 'bi_hide_file'
+src\builtins\kernel.c(37): error C2059: syntax error: ';'
+src\builtins\kernel.c(37): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(45): error C2061: syntax error: identifier 'bi_kill_pid'
+src\builtins\kernel.c(45): error C2059: syntax error: ';'
+src\builtins\kernel.c(45): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(53): error C2061: syntax error: identifier 'bi_kernel_modules'
+src\builtins\kernel.c(53): error C2059: syntax error: ';'
+src\builtins\kernel.c(53): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(79): error C2061: syntax error: identifier 'bi_disable_etw'
+src\builtins\kernel.c(79): error C2059: syntax error: ';'
+src\builtins\kernel.c(79): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(86): error C2061: syntax error: identifier 'bi_disable_ob_callbacks'
+src\builtins\kernel.c(86): error C2059: syntax error: ';'
+src\builtins\kernel.c(86): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(93): error C2061: syntax error: identifier 'bi_hide_driver'
+src\builtins\kernel.c(93): error C2059: syntax error: ';'
+src\builtins\kernel.c(93): error C2059: syntax error: '<parameter-list>'
+src\builtins\kernel.c(101): error C2065: 'bi_kernel_modules': undeclared identifier
+src\builtins\kernel.c(102): error C2065: 'bi_kernel_modules': undeclared identifier
+src\builtins\kernel.c(103): error C2065: 'bi_hide_pid': undeclared identifier
+src\builtins\kernel.c(104): error C2065: 'bi_unhide_pid': undeclared identifier
+src\builtins\kernel.c(105): error C2065: 'bi_hide_file': undeclared identifier
+src\builtins\kernel.c(106): error C2065: 'bi_get_root': undeclared identifier
+src\builtins\kernel.c(107): error C2065: 'bi_kill_pid': undeclared identifier
+src\builtins\kernel.c(108): error C2065: 'bi_disable_etw': undeclared identifier
+src\builtins\kernel.c(109): error C2065: 'bi_disable_ob_callbacks': undeclared identifier
+src\builtins\kernel.c(111): error C2065: 'bi_hide_pid': undeclared identifier
+src\builtins\kernel.c(112): error C2065: 'bi_unhide_pid': undeclared identifier
+src\builtins\kernel.c(113): error C2065: 'bi_hide_file': undeclared identifier
+src\builtins\kernel.c(114): error C2065: 'bi_get_root': undeclared identifier
+src\builtins\kernel.c(115): error C2065: 'bi_kill_pid': undeclared identifier
+src\builtins\kernel.c(100): error C2099: initializer is not a constant
+util.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\util.c(13): error C2061: syntax error: identifier 'bi_print'
+src\builtins\util.c(13): error C2059: syntax error: ';'
+src\builtins\util.c(13): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(27): error C2061: syntax error: identifier 'bi_len'
+src\builtins\util.c(27): error C2059: syntax error: ';'
+src\builtins\util.c(27): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(34): error C2061: syntax error: identifier 'bi_str'
+src\builtins\util.c(34): error C2059: syntax error: ';'
+src\builtins\util.c(34): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(43): error C2061: syntax error: identifier 'bi_int'
+src\builtins\util.c(43): error C2059: syntax error: ';'
+src\builtins\util.c(43): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(59): error C2061: syntax error: identifier 'bi_float'
+src\builtins\util.c(59): error C2059: syntax error: ';'
+src\builtins\util.c(59): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(73): error C2061: syntax error: identifier 'bi_bool'
+src\builtins\util.c(73): error C2059: syntax error: ';'
+src\builtins\util.c(73): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(80): error C2061: syntax error: identifier 'bi_list'
+src\builtins\util.c(80): error C2059: syntax error: ';'
+src\builtins\util.c(80): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(90): error C2061: syntax error: identifier 'bi_dict'
+src\builtins\util.c(90): error C2059: syntax error: ';'
+src\builtins\util.c(90): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(106): error C2061: syntax error: identifier 'bi_range'
+src\builtins\util.c(106): error C2059: syntax error: ';'
+src\builtins\util.c(106): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(135): error C2061: syntax error: identifier 'bi_abs'
+src\builtins\util.c(135): error C2059: syntax error: ';'
+src\builtins\util.c(135): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(147): error C2061: syntax error: identifier 'bi_min'
+src\builtins\util.c(147): error C2059: syntax error: ';'
+src\builtins\util.c(147): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(167): error C2061: syntax error: identifier 'bi_max'
+src\builtins\util.c(167): error C2059: syntax error: ';'
+src\builtins\util.c(167): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(187): error C2061: syntax error: identifier 'bi_type'
+src\builtins\util.c(187): error C2059: syntax error: ';'
+src\builtins\util.c(187): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(204): error C2061: syntax error: identifier 'bi_supports'
+src\builtins\util.c(204): error C2059: syntax error: ';'
+src\builtins\util.c(204): error C2059: syntax error: '<parameter-list>'
+src\builtins\util.c(213): error C2065: 'bi_print': undeclared identifier
+src\builtins\util.c(214): error C2065: 'bi_len': undeclared identifier
+src\builtins\util.c(215): error C2065: 'bi_str': undeclared identifier
+src\builtins\util.c(216): error C2065: 'bi_int': undeclared identifier
+src\builtins\util.c(217): error C2065: 'bi_float': undeclared identifier
+src\builtins\util.c(218): error C2065: 'bi_bool': undeclared identifier
+src\builtins\util.c(219): error C2065: 'bi_list': undeclared identifier
+src\builtins\util.c(220): error C2065: 'bi_dict': undeclared identifier
+src\builtins\util.c(221): error C2065: 'bi_range': undeclared identifier
+src\builtins\util.c(222): error C2065: 'bi_abs': undeclared identifier
+src\builtins\util.c(223): error C2065: 'bi_min': undeclared identifier
+src\builtins\util.c(224): error C2065: 'bi_max': undeclared identifier
+src\builtins\util.c(225): error C2065: 'bi_type': undeclared identifier
+src\builtins\util.c(226): error C2065: 'bi_supports': undeclared identifier
+src\builtins\util.c(212): error C2099: initializer is not a constant
+pure.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\pure.c(11): error C2061: syntax error: identifier 'bi_print'
+src\builtins\pure.c(11): error C2059: syntax error: ';'
+src\builtins\pure.c(11): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(29): error C2061: syntax error: identifier 'bi_len'
+src\builtins\pure.c(29): error C2059: syntax error: ';'
+src\builtins\pure.c(29): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(39): error C2061: syntax error: identifier 'bi_str'
+src\builtins\pure.c(39): error C2059: syntax error: ';'
+src\builtins\pure.c(39): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(51): error C2061: syntax error: identifier 'bi_int'
+src\builtins\pure.c(51): error C2059: syntax error: ';'
+src\builtins\pure.c(51): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(92): error C2061: syntax error: identifier 'bi_float'
+src\builtins\pure.c(92): error C2059: syntax error: ';'
+src\builtins\pure.c(92): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(122): error C2061: syntax error: identifier 'bi_bool'
+src\builtins\pure.c(122): error C2059: syntax error: ';'
+src\builtins\pure.c(122): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(132): error C2061: syntax error: identifier 'bi_list'
+src\builtins\pure.c(132): error C2059: syntax error: ';'
+src\builtins\pure.c(132): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(159): error C2061: syntax error: identifier 'bi_dict'
+src\builtins\pure.c(159): error C2059: syntax error: ';'
+src\builtins\pure.c(159): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(174): error C2061: syntax error: identifier 'bi_range'
+src\builtins\pure.c(174): error C2059: syntax error: ';'
+src\builtins\pure.c(174): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(228): error C2061: syntax error: identifier 'bi_abs'
+src\builtins\pure.c(228): error C2059: syntax error: ';'
+src\builtins\pure.c(228): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(249): error C2061: syntax error: identifier 'minmax'
+src\builtins\pure.c(249): error C2059: syntax error: ';'
+src\builtins\pure.c(249): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(285): error C2061: syntax error: identifier 'bi_min'
+src\builtins\pure.c(285): error C2059: syntax error: ';'
+src\builtins\pure.c(285): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(289): error C2061: syntax error: identifier 'bi_max'
+src\builtins\pure.c(289): error C2059: syntax error: ';'
+src\builtins\pure.c(289): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(297): error C2061: syntax error: identifier 'bi_type'
+src\builtins\pure.c(297): error C2059: syntax error: ';'
+src\builtins\pure.c(297): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(319): error C2061: syntax error: identifier 'bi_supports'
+src\builtins\pure.c(319): error C2059: syntax error: ';'
+src\builtins\pure.c(319): error C2059: syntax error: '<parameter-list>'
+src\builtins\pure.c(335): error C2065: 'bi_print': undeclared identifier
+src\builtins\pure.c(336): error C2065: 'bi_len': undeclared identifier
+src\builtins\pure.c(337): error C2065: 'bi_str': undeclared identifier
+src\builtins\pure.c(338): error C2065: 'bi_int': undeclared identifier
+src\builtins\pure.c(339): error C2065: 'bi_float': undeclared identifier
+src\builtins\pure.c(340): error C2065: 'bi_bool': undeclared identifier
+src\builtins\pure.c(341): error C2065: 'bi_list': undeclared identifier
+src\builtins\pure.c(342): error C2065: 'bi_dict': undeclared identifier
+src\builtins\pure.c(343): error C2065: 'bi_range': undeclared identifier
+src\builtins\pure.c(344): error C2065: 'bi_abs': undeclared identifier
+src\builtins\pure.c(345): error C2065: 'bi_min': undeclared identifier
+src\builtins\pure.c(346): error C2065: 'bi_max': undeclared identifier
+src\builtins\pure.c(347): error C2065: 'bi_type': undeclared identifier
+src\builtins\pure.c(348): error C2065: 'bi_supports': undeclared identifier
+src\builtins\pure.c(334): error C2099: initializer is not a constant
+crypto.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\crypto.c(245): error C2061: syntax error: identifier 'bi_md5'
+src\builtins\crypto.c(245): error C2059: syntax error: ';'
+src\builtins\crypto.c(245): error C2059: syntax error: '<parameter-list>'
+src\builtins\crypto.c(257): error C2061: syntax error: identifier 'bi_sha256'
+src\builtins\crypto.c(257): error C2059: syntax error: ';'
+src\builtins\crypto.c(257): error C2059: syntax error: '<parameter-list>'
+src\builtins\crypto.c(269): error C2061: syntax error: identifier 'bi_xor'
+src\builtins\crypto.c(269): error C2059: syntax error: ';'
+src\builtins\crypto.c(269): error C2059: syntax error: '<parameter-list>'
+src\builtins\crypto.c(289): error C2061: syntax error: identifier 'bi_b64e'
+src\builtins\crypto.c(289): error C2059: syntax error: ';'
+src\builtins\crypto.c(289): error C2059: syntax error: '<parameter-list>'
+src\builtins\crypto.c(299): error C2061: syntax error: identifier 'bi_b64d'
+src\builtins\crypto.c(299): error C2059: syntax error: ';'
+src\builtins\crypto.c(299): error C2059: syntax error: '<parameter-list>'
+src\builtins\crypto.c(309): error C2065: 'bi_md5': undeclared identifier
+src\builtins\crypto.c(310): error C2065: 'bi_sha256': undeclared identifier
+src\builtins\crypto.c(311): error C2065: 'bi_xor': undeclared identifier
+src\builtins\crypto.c(312): error C2065: 'bi_b64e': undeclared identifier
+src\builtins\crypto.c(313): error C2065: 'bi_b64d': undeclared identifier
+src\builtins\crypto.c(315): error C2065: 'bi_md5': undeclared identifier
+src\builtins\crypto.c(316): error C2065: 'bi_sha256': undeclared identifier
+src\builtins\crypto.c(317): error C2065: 'bi_xor': undeclared identifier
+src\builtins\crypto.c(318): error C2065: 'bi_b64e': undeclared identifier
+src\builtins\crypto.c(319): error C2065: 'bi_b64d': undeclared identifier
+src\builtins\crypto.c(308): error C2099: initializer is not a constant
+data.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing ')' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2143: syntax error: missing '{' before '*'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: 'type'
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\include\jky_value.h(246): error C2059: syntax error: ')'
+src\builtins\data.c(9): error C2061: syntax error: identifier 'bi_hex_dump'
+src\builtins\data.c(9): error C2059: syntax error: ';'
+src\builtins\data.c(9): error C2059: syntax error: '<parameter-list>'
+src\builtins\data.c(38): error C2061: syntax error: identifier 'bi_timestamp'
+src\builtins\data.c(38): error C2059: syntax error: ';'
+src\builtins\data.c(38): error C2059: syntax error: '<parameter-list>'
+src\builtins\data.c(44): error C2061: syntax error: identifier 'bi_uuid'
+src\builtins\data.c(44): error C2059: syntax error: ';'
+src\builtins\data.c(44): error C2059: syntax error: '<parameter-list>'
+src\builtins\data.c(72): error C2061: syntax error: identifier 'bi_random_bytes'
+src\builtins\data.c(72): error C2059: syntax error: ';'
+src\builtins\data.c(72): error C2059: syntax error: '<parameter-list>'
+src\builtins\data.c(105): error C2061: syntax error: identifier 'bi_url_encode'
+src\builtins\data.c(105): error C2059: syntax error: ';'
+src\builtins\data.c(105): error C2059: syntax error: '<parameter-list>'
+src\builtins\data.c(130): error C2061: syntax error: identifier 'bi_url_decode'
+src\builtins\data.c(130): error C2059: syntax error: ';'
+src\builtins\data.c(130): error C2059: syntax error: '<parameter-list>'
+src\builtins\data.c(157): error C2065: 'bi_hex_dump': undeclared identifier
+src\builtins\data.c(158): error C2065: 'bi_timestamp': undeclared identifier
+src\builtins\data.c(159): error C2065: 'bi_uuid': undeclared identifier
+src\builtins\data.c(160): error C2065: 'bi_random_bytes': undeclared identifier
+src\builtins\data.c(161): error C2065: 'bi_url_encode': undeclared identifier
+src\builtins\data.c(162): error C2065: 'bi_url_decode': undeclared identifier
+src\builtins\data.c(156): error C2099: initializer is not a constant
+platform.c
+src\platform\windows\platform.c(49): warning C4013: 'snprintf' undefined; assuming extern returning int
+src\platform\windows\platform.c(48): warning C4996: 'GetVersionExA': was declared deprecated
+src\platform\windows\platform.c(73): warning C4142: 'jky_uptime_sec': benign redefinition of type
+include\jky_platform.h(29): note: see declaration of 'jky_uptime_sec'
+src\platform\windows\platform.c(85): warning C4142: 'jky_total_mem': benign redefinition of type
+include\jky_platform.h(32): note: see declaration of 'jky_total_mem'
+src\platform\windows\platform.c(93): warning C4142: 'jky_free_mem': benign redefinition of type
+include\jky_platform.h(33): note: see declaration of 'jky_free_mem'
+linking...
+main.obj : error LNK2019: unresolved external symbol vm_init referenced in function main
+main.obj : error LNK2019: unresolved external symbol vm_free referenced in function main
+main.obj : error LNK2019: unresolved external symbol vm_execute referenced in function main
+main.obj : error LNK2019: unresolved external symbol vm_load referenced in function main
+jockey.exe : fatal error LNK1120: 4 unresolved externals
+done.

@@ -1,0 +1,25 @@
+# Build artifacts
+*.exe
+*.ko
+*.sys
+*.o
+*.obj
+*.pyc
+*.pyo
+__pycache__/
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini

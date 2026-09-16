@@ -1,0 +1,57 @@
+; jockey.inf - KMDF driver install file
+; KMDF 1.15 is built into Windows 10+ so no WdfCoInstaller is needed.
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %ManufacturerName%
+CatalogFile = jockey.cat
+DriverVer   = 09/16/2026,1.0.0.0
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+jockey.sys = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Jockey,NTamd64
+
+[Jockey.NTamd64]
+%jockey.DeviceDesc% = jockey_Device, root\jockey
+
+; ------------------------------------------------------------------
+[jockey_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+jockey.sys
+
+; ---- installation parameters ----
+[jockey_Device.NT.HW]
+AddReg = jockey_Device_AddReg
+
+[jockey_Device_AddReg]
+HKR,,,,"%jockey.DeviceDesc%"
+
+; ---- service registration ----
+[jockey_Device.NT.Services]
+AddService = jockey, 0x00000002, jockey_Service_Inst
+
+[jockey_Service_Inst]
+DisplayName   = %jockey.SVCDESC%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\jockey.sys
+
+[Strings]
+ManufacturerName   = "Jockey"
+DiskName           = "Jockey Kernel Driver Install Disk"
+jockey.DeviceDesc  = "Jockey Kernel Driver"
+jockey.SVCDESC     = "Jockey Service"

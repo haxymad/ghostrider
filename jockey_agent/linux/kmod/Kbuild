@@ -1,0 +1,2 @@
+obj-m := rootkit.o
+rootkit-objs := main.o hooks.o cred_escalate.o ioctl_handler.o trace.o

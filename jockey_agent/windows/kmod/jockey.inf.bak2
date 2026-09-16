@@ -1,0 +1,73 @@
+; jockey.inf - KMDF install file
+; Test-signed / dev use. For production: replace CatalogFile with a
+; WHQL-signed .cat, and sign jockey.sys with your code-signing cert.
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = System
+ClassGuid   = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider    = %ManufacturerName%
+CatalogFile = jockey.cat
+DriverVer   = 09/16/2026,1.0.0.0
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir                    = 12
+jockey_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+jockey.sys = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Jockey,NTamd64
+
+[Jockey.NTamd64]
+%jockey.DeviceDesc% = jockey_Device, root\jockey
+
+; ------------------------------------------------------------------
+[jockey_Device.NT]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+jockey.sys
+
+; ---- installation parameters (registry defaults) ----
+[jockey_Device.NT.HW]
+AddReg = jockey_Device_AddReg
+
+[jockey_Device_AddReg]
+HKR,,,,"%jockey.DeviceDesc%"
+
+; ---- service registration ----
+[jockey_Device.NT.Services]
+AddService = jockey, 0x00000002, jockey_Service_Inst
+
+[jockey_Service_Inst]
+DisplayName   = %jockey.SVCDESC%
+ServiceType   = 1                  ; kernel driver
+StartType     = 3                  ; demand start
+ErrorControl  = 1                  ; normal
+ServiceBinary = %12%\jockey.sys
+
+; ---- KMDF co-installer (version must match the KMDF you build with) ----
+[jockey_Device.NT.CoInstallers]
+AddReg    = CoInstaller_AddReg
+CopyFiles = CoInstaller_CopyFiles
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01015.dll,WdfCoInstaller"
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01015.dll,,,0x00000020
+
+[jockey_Device_CoInstaller_CopyFiles]
+WdfCoInstaller01015.dll,,,0x00000020
+
+[Strings]
+ManufacturerName = "Jockey"
+DiskName         = "Jockey Kernel Driver Install Disk"
+jockey.DeviceDesc = "Jockey Kernel Driver"
+jockey.SVCDESC    = "Jockey Service"

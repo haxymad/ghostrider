@@ -1,0 +1,13 @@
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_km.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_hide.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_driver.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_etw.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_obcb.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_obcb.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_driverhide.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_cred.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_kill.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_mem.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_net.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_net.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_proc.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_patch.obj
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_resolve.c;C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\x64\Release\jockey\jockey_resolve.obj

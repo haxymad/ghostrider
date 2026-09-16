@@ -1,0 +1,598 @@
+MSBuild version 18.8.2+ce25c0108 for .NET Framework
+Build started 9/16/2026 2:37:59 AM.
+
+Project "C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "x64\Release\jockey\jockey.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.51.36231\bin\HostX64\x64\CL.exe /c /I"C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km" /Zi /nologo /W3 /WX- /diagnostics:column /O2 /Ob2 /Ot /Oy /D _AMD64_ /D DBG=1 /D _BLDR_ /D _UNICODE /D UNICODE /Gm- /MT /GS- /fp:precise /Qspectre /Zc:wchar_t /Zc:forScope /Zc:inline /GR- /Fo"x64\Release\jockey\\" /Fd"x64\Release\jockey\vc145.pdb" /external:W3 /Gd /TC /wd28159 /wd28204 /wd28252 /wd28253 /wd28251 /FC /errorReport:queue jockey_km.c jockey_hide.c jockey_driver.c jockey_etw.c jockey_obcb.c jockey_driverhide.c jockey_cred.c jockey_kill.c jockey_mem.c jockey_net.c jockey_proc.c jockey_patch.c
+  jockey_km.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_km.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_km.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_km.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(127,53): warning C4022: 'jockey_ioctl_hide_pid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(127,18): error C2198: 'NTSTATUS jockey_ioctl_hide_pid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(131,55): warning C4022: 'jockey_ioctl_unhide_pid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(131,18): error C2198: 'NTSTATUS jockey_ioctl_unhide_pid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(135,54): warning C4022: 'jockey_ioctl_hide_file': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(135,18): error C2198: 'NTSTATUS jockey_ioctl_hide_file(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(139,56): warning C4022: 'jockey_ioctl_unhide_file': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(139,18): error C2198: 'NTSTATUS jockey_ioctl_unhide_file(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(143,53): warning C4022: 'jockey_ioctl_get_root': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(143,18): error C2198: 'NTSTATUS jockey_ioctl_get_root(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(147,53): warning C4022: 'jockey_ioctl_kill_pid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(147,18): error C2198: 'NTSTATUS jockey_ioctl_kill_pid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(151,56): warning C4022: 'jockey_ioctl_disable_etw': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(151,18): error C2198: 'NTSTATUS jockey_ioctl_disable_etw(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(155,65): warning C4022: 'jockey_ioctl_disable_ob_callbacks': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(155,18): error C2198: 'NTSTATUS jockey_ioctl_disable_ob_callbacks(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(159,56): warning C4022: 'jockey_ioctl_hide_driver': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(159,18): error C2198: 'NTSTATUS jockey_ioctl_hide_driver(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(163,56): warning C4022: 'jockey_ioctl_protect_mem': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(163,18): error C2198: 'NTSTATUS jockey_ioctl_protect_mem(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(167,62): warning C4022: 'jockey_ioctl_disable_callbacks': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(167,18): error C2198: 'NTSTATUS jockey_ioctl_disable_callbacks(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(171,56): warning C4022: 'jockey_ioctl_hide_thread': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_hide.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(171,18): error C2198: 'NTSTATUS jockey_ioctl_hide_thread(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(175,55): warning C4022: 'jockey_ioctl_spoof_ppid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(175,18): error C2198: 'NTSTATUS jockey_ioctl_spoof_ppid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(179,54): warning C4022: 'jockey_ioctl_clear_etw': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(179,18): error C2198: 'NTSTATUS jockey_ioctl_clear_etw(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(183,55): warning C4022: 'jockey_ioctl_dump_lsass': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(183,18): error C2198: 'NTSTATUS jockey_ioctl_dump_lsass(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(187,54): warning C4022: 'jockey_ioctl_hide_port': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(187,18): error C2198: 'NTSTATUS jockey_ioctl_hide_port(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(191,59): warning C4022: 'jockey_ioctl_process_shield': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(191,18): error C2198: 'NTSTATUS jockey_ioctl_process_shield(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(195,56): warning C4022: 'jockey_ioctl_unhook_ssdt': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(195,18): error C2198: 'NTSTATUS jockey_ioctl_unhook_ssdt(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(199,56): warning C4022: 'jockey_ioctl_patch_ntdll': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(199,18): error C2198: 'NTSTATUS jockey_ioctl_patch_ntdll(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_hide.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_hide.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_hide.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(29,62): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(29,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(113,64): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(113,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(148,33): error C2223: left of '->Blink' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(149,33): error C2223: left of '->Flink' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(180,37): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,5): error C2065: 'PHANDLE_TABLE': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,19): error C2146: syntax error: missing ';' before identifier 'cid_table' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,19): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,33): error C2065: 'PHANDLE_TABLE': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,48): error C2059: syntax error: ')' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(184,5): error C2065: 'PHANDLE_TABLE_ENTRY': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(184,25): error C2146: syntax error: missing ';' before identifier 'entries' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(184,25): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(187,10): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(187,24): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(187,35): error C2223: left of '->TableCode' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,5): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,16): error C2065: 'PHANDLE_TABLE_ENTRY': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,16): error C2064: term does not evaluate to a function taking 0 arguments [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,37): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,48): error C2223: left of '->TableCode' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(191,14): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(191,25): error C2223: left of '->NextHandleFree' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(192,11): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_driver.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(192,22): error C2223: left of '->NextHandleFree' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(195,13): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(195,20): error C2109: subscript requires array or pointer type [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(196,13): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(196,20): error C2109: subscript requires array or pointer type [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(197,13): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(197,20): error C2109: subscript requires array or pointer type [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(215,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(215,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(275,63): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(275,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(309,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(309,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(325,37): warning C4133: 'function': incompatible types - from 'wchar_t *' to 'PCUNICODE_STRING' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(325,51): warning C4133: 'function': incompatible types - from 'wchar_t *' to 'PCUNICODE_STRING' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_driver.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_driver.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_driver.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(12,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(12,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(12,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(13,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(13,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(13,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(14,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(14,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(14,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(15,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(15,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(15,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(16,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(16,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(16,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(17,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(17,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(17,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(18,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(18,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(18,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(19,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(19,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(19,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(20,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(20,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(20,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(21,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(21,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(21,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(22,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_etw.c
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(22,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(22,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(23,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(23,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(23,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(24,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(24,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(24,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(25,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(25,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(25,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(26,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(26,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(26,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(27,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(27,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(27,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(28,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(28,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(28,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(29,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(29,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(29,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(30,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(30,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(30,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_etw.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_etw.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_etw.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(44,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(44,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(91,63): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(91,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_obcb.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_obcb.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_obcb.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_obcb.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_obcb.c(18,74): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_obcb.c(18,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_driverhide.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_driverhide.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_driverhide.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_driverhide.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(26,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(26,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(40,10): warning C4133: '=': incompatible types - from '_LIST_ENTRY *' to 'PJOCKEY_LDR_DATA_TABLE_ENTRY' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(41,10): warning C4133: '=': incompatible types - from '_LIST_ENTRY *' to 'PJOCKEY_LDR_DATA_TABLE_ENTRY' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(42,34): warning C4133: '=': incompatible types - from 'PJOCKEY_LDR_DATA_TABLE_ENTRY' to '_LIST_ENTRY *' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(43,34): warning C4133: '=': incompatible types - from 'PJOCKEY_LDR_DATA_TABLE_ENTRY' to '_LIST_ENTRY *' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_cred.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_cred.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_cred.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_cred.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(32,37): warning C4090: 'function': different 'const' qualifiers [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(32,48): warning C4133: 'function': incompatible types - from 'LUID *' to 'PUNICODE_STRING' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(32,14): error C2198: 'NTSTATUS SeLookupPrivilegeValue(PUNICODE_STRING,PUNICODE_STRING,PLUID)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(52,62): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(52,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_kill.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_kill.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_kill.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_kill.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c(10,62): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c(10,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c(29,14): warning C4013: 'PsTerminateProcess' undefined; assuming extern returning int [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_mem.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_mem.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_mem.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_mem.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(18,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(18,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(40,14): warning C4013: 'ZwProtectVirtualMemory' undefined; assuming extern returning int [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(74,64): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(74,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(101,14): warning C4013: 'MmCopyVirtualMemory' undefined; assuming extern returning int [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_net.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_net.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_net.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_net.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_net.c(18,63): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_net.c(18,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_proc.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_proc.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_proc.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_proc.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(19,68): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(19,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(71,64): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(71,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  jockey_patch.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_patch.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(19337,9):
+      see previous definition of 'NTHALAPI'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_patch.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40786,1):
+      see declaration of 'KeQueryPerformanceCounter'
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  (compiling source file 'jockey_patch.c')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\wdm.h(40801,1):
+      see declaration of 'KeStallExecutionProcessor'
+  
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(28,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(28,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(56,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(56,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  Generating Code...
+Done Building Project "C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(127,53): warning C4022: 'jockey_ioctl_hide_pid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(131,55): warning C4022: 'jockey_ioctl_unhide_pid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(135,54): warning C4022: 'jockey_ioctl_hide_file': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(139,56): warning C4022: 'jockey_ioctl_unhide_file': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(143,53): warning C4022: 'jockey_ioctl_get_root': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(147,53): warning C4022: 'jockey_ioctl_kill_pid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(151,56): warning C4022: 'jockey_ioctl_disable_etw': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(155,65): warning C4022: 'jockey_ioctl_disable_ob_callbacks': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(159,56): warning C4022: 'jockey_ioctl_hide_driver': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(163,56): warning C4022: 'jockey_ioctl_protect_mem': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(167,62): warning C4022: 'jockey_ioctl_disable_callbacks': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(171,56): warning C4022: 'jockey_ioctl_hide_thread': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(175,55): warning C4022: 'jockey_ioctl_spoof_ppid': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(179,54): warning C4022: 'jockey_ioctl_clear_etw': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(183,55): warning C4022: 'jockey_ioctl_dump_lsass': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(187,54): warning C4022: 'jockey_ioctl_hide_port': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(191,59): warning C4022: 'jockey_ioctl_process_shield': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(195,56): warning C4022: 'jockey_ioctl_unhook_ssdt': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(199,56): warning C4022: 'jockey_ioctl_patch_ntdll': pointer mismatch for actual parameter 3 [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(29,62): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(29,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(113,64): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(113,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(180,37): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(215,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(215,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(275,63): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(275,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(309,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(309,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(325,37): warning C4133: 'function': incompatible types - from 'wchar_t *' to 'PCUNICODE_STRING' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(325,51): warning C4133: 'function': incompatible types - from 'wchar_t *' to 'PCUNICODE_STRING' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(12,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(12,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(12,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(13,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(13,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(13,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(14,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(14,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(14,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(15,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(15,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(15,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(16,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(16,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(16,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(17,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(17,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(17,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(18,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(18,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(18,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(19,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(19,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(19,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(20,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(20,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(20,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(21,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(21,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(21,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(22,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(22,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(22,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(23,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(23,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(23,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(24,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(24,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(24,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(25,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(25,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(25,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(26,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(26,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(26,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(27,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(27,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(27,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(28,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(28,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(28,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(29,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(29,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(29,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(30,17): warning C4030: first formal parameter list longer than the second list [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(30,17): warning C4028: formal parameter 1 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driver.c(30,17): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(44,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(44,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(91,63): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_etw.c(91,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_obcb.c(18,74): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_obcb.c(18,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(26,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(26,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(40,10): warning C4133: '=': incompatible types - from '_LIST_ENTRY *' to 'PJOCKEY_LDR_DATA_TABLE_ENTRY' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(41,10): warning C4133: '=': incompatible types - from '_LIST_ENTRY *' to 'PJOCKEY_LDR_DATA_TABLE_ENTRY' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(42,34): warning C4133: '=': incompatible types - from 'PJOCKEY_LDR_DATA_TABLE_ENTRY' to '_LIST_ENTRY *' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_driverhide.c(43,34): warning C4133: '=': incompatible types - from 'PJOCKEY_LDR_DATA_TABLE_ENTRY' to '_LIST_ENTRY *' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(32,37): warning C4090: 'function': different 'const' qualifiers [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(32,48): warning C4133: 'function': incompatible types - from 'LUID *' to 'PUNICODE_STRING' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(52,62): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(52,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c(10,62): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c(10,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_kill.c(29,14): warning C4013: 'PsTerminateProcess' undefined; assuming extern returning int [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(18,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(18,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(40,14): warning C4013: 'ZwProtectVirtualMemory' undefined; assuming extern returning int [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(74,64): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(74,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_mem.c(101,14): warning C4013: 'MmCopyVirtualMemory' undefined; assuming extern returning int [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_net.c(18,63): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_net.c(18,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(19,68): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(19,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(71,64): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_proc.c(71,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(18031,9): warning C4005: 'NTHALAPI': macro redefinition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(28,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(28,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(56,65): warning C4028: formal parameter 3 different from declaration [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_patch.c(56,10): warning C4029: declared formal parameter list different from definition [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+
+
+"C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(127,18): error C2198: 'NTSTATUS jockey_ioctl_hide_pid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(131,18): error C2198: 'NTSTATUS jockey_ioctl_unhide_pid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(135,18): error C2198: 'NTSTATUS jockey_ioctl_hide_file(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(139,18): error C2198: 'NTSTATUS jockey_ioctl_unhide_file(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(143,18): error C2198: 'NTSTATUS jockey_ioctl_get_root(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(147,18): error C2198: 'NTSTATUS jockey_ioctl_kill_pid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(151,18): error C2198: 'NTSTATUS jockey_ioctl_disable_etw(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(155,18): error C2198: 'NTSTATUS jockey_ioctl_disable_ob_callbacks(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(159,18): error C2198: 'NTSTATUS jockey_ioctl_hide_driver(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(163,18): error C2198: 'NTSTATUS jockey_ioctl_protect_mem(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(167,18): error C2198: 'NTSTATUS jockey_ioctl_disable_callbacks(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(171,18): error C2198: 'NTSTATUS jockey_ioctl_hide_thread(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(175,18): error C2198: 'NTSTATUS jockey_ioctl_spoof_ppid(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(179,18): error C2198: 'NTSTATUS jockey_ioctl_clear_etw(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(183,18): error C2198: 'NTSTATUS jockey_ioctl_dump_lsass(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(187,18): error C2198: 'NTSTATUS jockey_ioctl_hide_port(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(191,18): error C2198: 'NTSTATUS jockey_ioctl_process_shield(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(195,18): error C2198: 'NTSTATUS jockey_ioctl_unhook_ssdt(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_km.c(199,18): error C2198: 'NTSTATUS jockey_ioctl_patch_ntdll(PVOID,ULONG,PVOID,ULONG)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(148,33): error C2223: left of '->Blink' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(149,33): error C2223: left of '->Flink' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,5): error C2065: 'PHANDLE_TABLE': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,19): error C2146: syntax error: missing ';' before identifier 'cid_table' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,19): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,33): error C2065: 'PHANDLE_TABLE': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(182,48): error C2059: syntax error: ')' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(184,5): error C2065: 'PHANDLE_TABLE_ENTRY': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(184,25): error C2146: syntax error: missing ';' before identifier 'entries' [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(184,25): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(187,10): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(187,24): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(187,35): error C2223: left of '->TableCode' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,5): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,16): error C2065: 'PHANDLE_TABLE_ENTRY': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,16): error C2064: term does not evaluate to a function taking 0 arguments [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,37): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(190,48): error C2223: left of '->TableCode' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(191,14): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(191,25): error C2223: left of '->NextHandleFree' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(192,11): error C2065: 'cid_table': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(192,22): error C2223: left of '->NextHandleFree' must point to struct/union [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(195,13): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(195,20): error C2109: subscript requires array or pointer type [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(196,13): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(196,20): error C2109: subscript requires array or pointer type [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(197,13): error C2065: 'entries': undeclared identifier [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_hide.c(197,20): error C2109: subscript requires array or pointer type [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey_cred.c(32,14): error C2198: 'NTSTATUS SeLookupPrivilegeValue(PUNICODE_STRING,PUNICODE_STRING,PLUID)': too few arguments for call [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21589,1): error C2375: 'KeQueryPerformanceCounter': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.28000.0\km\ntifs.h(21604,1): error C2375: 'KeStallExecutionProcessor': redefinition; different linkage [C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj]
+
+    136 Warning(s)
+    72 Error(s)
+
+Time Elapsed 00:00:01.44

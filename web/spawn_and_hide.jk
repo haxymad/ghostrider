@@ -1,0 +1,27 @@
+// spawn_and_hide.jk — create a process, find its PID, hide it
+exec("notepad.exe")
+sleep(500)
+
+before = procs()
+after  = procs()
+
+hidden = 0
+for p in after {
+    found = 0
+    for b in before {
+        if b.pid == p.pid {
+            found = 1
+            break
+        }
+    }
+    if found == 0 {
+        hide_pid(p.pid)
+        print("spawned + hidden:", p.name, "pid:", p.pid)
+        hidden = 1
+        break
+    }
+}
+
+if hidden == 0 {
+    print("could not find new process")
+}

@@ -1,0 +1,40 @@
+; jockey.inf — Windows kernel driver installation manifest
+; Build with: inf2cat /driver:kmod /os:10_X64
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = "Security"
+ClassGuid   = {B55F8EE3-45A6-4C5F-9B63-9C296C3D7F0E}
+Provider    = %ProviderName%
+DriverVer   = 09/01/2025,1.0.0.1
+CatalogFile = jockey.cat
+
+[DestinationDirs]
+DefaultDestDir = 12 ; %SystemRoot%\system32\drivers
+
+[DefaultInstall]
+CopyFiles=DefaultInstall.Services,DefaultInstall.CopyFiles
+
+[DefaultInstall.Services]
+AddService = %ServiceName%,2,DriverService
+
+[DriverService]
+DisplayName   = %ServiceName%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\jockey.sys
+
+[DefaultInstall.CopyFiles]
+jockey.sys
+
+[SourceDisksNames]
+1 = %DiskId%,,,""
+
+[SourceDisksFiles]
+jockey.sys = 1
+
+[Strings]
+ProviderName   = "Jockey"
+ServiceName    = "jockey"
+DiskId         = "Jockey Driver"

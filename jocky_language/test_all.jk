@@ -1,0 +1,473 @@
+# ============================================================
+# Jockey language semantics test suite — single file
+# ============================================================
+
+let stats = [0, 0]
+
+fn check(name, cond) {
+    if cond {
+        stats[0] = stats[0] + 1
+    } else {
+        stats[1] = stats[1] + 1
+        print("FAIL:", name)
+    }
+}
+
+fn section(name) {
+    print("")
+    print("== " + name + " ==")
+}
+
+# ────────────────────────────────────────────────────────────
+section("literals")
+# ────────────────────────────────────────────────────────────
+
+check("int zero",        0 == 0)
+check("int positive",    42 == 42)
+check("int negative",    -7 == 0 - 7)
+check("int large",       9999999 == 9999999)
+check("float zero",      0.0 == 0.0)
+check("float simple",    3.14 == 3.14)
+check("float one",       1.0 == 1.0)
+check("string dquote",   "hello" == "hello")
+check("string squote",   'world' == "world")
+check("string empty",    "" == "")
+check("string escape n", len("a\nb") == 3)
+check("string escape t", len("a\tb") == 3)
+check("bool true",       true == true)
+check("bool false",      false == false)
+check("none eq",         none == none)
+check("array empty",     len([]) == 0)
+check("array 3",         len([1, 2, 3]) == 3)
+check("dict empty",      len({}) == 0)
+check("dict 2",          len({"a": 1, "b": 2}) == 2)
+
+# ────────────────────────────────────────────────────────────
+section("arithmetic — int")
+# ────────────────────────────────────────────────────────────
+
+check("1 + 2",           1 + 2 == 3)
+check("10 - 3",          10 - 3 == 7)
+check("3 * 4",           3 * 4 == 12)
+check("10 / 2 = 5.0",    10 / 2 == 5.0)
+check("7 / 2 = 3.5",     7 / 2 == 3.5)
+check("10 % 3",          10 % 3 == 1)
+check("-7 % 3 = -1",     (0 - 7) % 3 == 0 - 1)
+check("7 % -3 = 1",      7 % (0 - 3) == 1)
+
+# ────────────────────────────────────────────────────────────
+section("arithmetic — mixed")
+# ────────────────────────────────────────────────────────────
+
+check("1 + 2.5",         1 + 2.5 == 3.5)
+check("5.0 - 2",         5.0 - 2 == 3.0)
+check("2.5 * 2",         2.5 * 2 == 5.0)
+check("7.0 / 2",         7.0 / 2 == 3.5)
+
+# ────────────────────────────────────────────────────────────
+section("arithmetic — unary")
+# ────────────────────────────────────────────────────────────
+
+check("-(5)",            -(5) == 0 - 5)
+check("-(-5)",           -(-5) == 5)
+check("-1.5",            -(1.5) == 0.0 - 1.5)
+
+# ────────────────────────────────────────────────────────────
+section("string concat")
+# ────────────────────────────────────────────────────────────
+
+check("str + str",       "foo" + "bar" == "foobar")
+check("str + int",       "n=" + 5 == "n=5")
+check("int + str",       5 + "!" == "5!")
+check("str + bool",      "x=" + true == "x=1")
+check("empty + str",     "" + "abc" == "abc")
+
+# ────────────────────────────────────────────────────────────
+section("comparison")
+# ────────────────────────────────────────────────────────────
+
+check("1 == 1",          1 == 1)
+check("1 != 2",          1 != 2)
+check("1 < 2",           1 < 2)
+check("2 > 1",           2 > 1)
+check("1 <= 1",          1 <= 1)
+check("1 >= 1",          1 >= 1)
+check("1 <= 0 false",    (1 <= 0) == false)
+check("0 >= 1 false",    (0 >= 1) == false)
+check("1 == 1.0",        1 == 1.0)
+check("1 != 1.5",        1 != 1.5)
+check("1 < 1.5",         1 < 1.5)
+check("str eq",          "abc" == "abc")
+check("str lt",          "abc" < "abd")
+check("str gt",          "b" > "a")
+check("str empty lt",    "" < "a")
+check("bool eq",         true == true)
+check("bool ne",         true != false)
+check("none eq none",    none == none)
+check("none ne 0",       none != 0)
+check("int eq str false", (1 == "1") == false)
+
+# ────────────────────────────────────────────────────────────
+section("logic — and / or / not")
+# ────────────────────────────────────────────────────────────
+
+check("T and T",         (true and true) == true)
+check("T and F",         (true and false) == false)
+check("F and T",         (false and true) == false)
+check("F and F",         (false and false) == false)
+check("T or T",          (true or true) == true)
+check("T or F",          (true or false) == true)
+check("F or T",          (false or true) == true)
+check("F or F",          (false or false) == false)
+check("not true",        (not true) == false)
+check("not false",       (not false) == true)
+check("not none",        (not none) == true)
+check("not 0",           (not 0) == true)
+check("not 1",           (not 1) == false)
+check("not empty str",   (not "") == true)
+check("not nonempty",    (not "x") == false)
+check("not empty array", (not []) == true)
+check("not empty dict",  (not {}) == true)
+
+# ────────────────────────────────────────────────────────────
+section("short circuit")
+# ────────────────────────────────────────────────────────────
+
+let side = [0]
+fn bump() {
+    side[0] = side[0] + 1
+    return true
+}
+
+side[0] = 0
+let x1 = false and bump()
+check("F and _ does not bump", side[0] == 0)
+
+side[0] = 0
+let x2 = true and bump()
+check("T and _ bumps", side[0] == 1)
+
+side[0] = 0
+let x3 = true or bump()
+check("T or _ does not bump", side[0] == 0)
+
+side[0] = 0
+let x4 = false or bump()
+check("F or _ bumps", side[0] == 1)
+
+# ────────────────────────────────────────────────────────────
+section("bitwise")
+# ────────────────────────────────────────────────────────────
+
+check("5 | 3 = 7",        (5 | 3) == 7)
+check("5 & 3 = 1",        (5 & 3) == 1)
+check("5 ^ 3 = 6",        (5 ^ 3) == 6)
+check("~0 = -1",          (~0) == 0 - 1)
+check("~5 = -6",          (~5) == 0 - 6)
+check("1 | 2 & 3 = 3",    (1 | (2 & 3)) == 3)
+
+# ────────────────────────────────────────────────────────────
+section("precedence")
+# ────────────────────────────────────────────────────────────
+
+check("2 + 3 * 4",        2 + 3 * 4 == 14)
+check("(2+3)*4",          (2 + 3) * 4 == 20)
+check("10-2-3",           10 - 2 - 3 == 5)
+check("100/10/2",         100 / 10 / 2 == 5.0)
+check("2*3 + 4*5",        2 * 3 + 4 * 5 == 26)
+check("1+1 == 2",         (1 + 1) == 2)
+check("cmp before and",   (1 < 2) and (2 < 3))
+check("and before or",    (false and true) or true)
+check("not before cmp",   (not false) == true)
+check("((1+2)*(3+4))",    ((1 + 2) * (3 + 4)) == 21)
+check("cmp then logic",   (1 < 2) and (3 > 2) and (4 == 4))
+
+# ────────────────────────────────────────────────────────────
+section("variables and assignment")
+# ────────────────────────────────────────────────────────────
+
+let a = 5
+check("let init",        a == 5)
+
+let b
+check("let no init",     b == none)
+
+let c = a + 3
+check("let from expr",   c == 8)
+
+a = 10
+check("reassign",        a == 10)
+
+a += 5
+check("+=",              a == 15)
+a -= 3
+check("-=",              a == 12)
+a *= 2
+check("*=",              a == 24)
+a /= 4
+check("/= -> float",     a == 6.0)
+a %= 5
+check("%=",              a == 1.0)
+
+# ────────────────────────────────────────────────────────────
+section("if / elif / else")
+# ────────────────────────────────────────────────────────────
+
+let r = 0
+if true { r = 1 }
+check("if true",         r == 1)
+
+r = 0
+if false { r = 1 }
+check("if false no else", r == 0)
+
+r = 0
+if false { r = 1 } else { r = 2 }
+check("if/else else",    r == 2)
+
+r = 0
+if false { r = 1 } elif true { r = 2 } else { r = 3 }
+check("elif picked",     r == 2)
+
+r = 0
+if false { r = 1 } elif false { r = 2 } else { r = 3 }
+check("else picked",     r == 3)
+
+r = 0
+if 1 < 2 { r = 1 }
+check("cmp condition",   r == 1)
+
+r = 0
+if "nonempty" { r = 1 }
+check("string truthy",   r == 1)
+
+r = 0
+if 0 { r = 1 } else { r = 2 }
+check("0 falsy",         r == 2)
+
+# ────────────────────────────────────────────────────────────
+section("while loops")
+# ────────────────────────────────────────────────────────────
+
+r = 0
+while r < 5 { r = r + 1 }
+check("while counts to 5", r == 5)
+
+r = 0
+while true {
+    r = r + 1
+    if r == 3 { break }
+}
+check("while + break",   r == 3)
+
+r = 0
+let i = 0
+while i < 10 {
+    i = i + 1
+    if i % 2 == 0 { continue }
+    r = r + 1
+}
+check("while + continue", r == 5)
+
+# ────────────────────────────────────────────────────────────
+section("for loops")
+# ────────────────────────────────────────────────────────────
+
+let total = 0
+for x in [1, 2, 3, 4] { total = total + x }
+check("for over array",  total == 10)
+
+total = 0
+for x in range(5) { total = total + x }
+check("for over range(5)", total == 10)
+
+total = 0
+for x in [1, 2, 3, 4, 5] {
+    if x == 3 { break }
+    total = total + x
+}
+check("for + break",     total == 3)
+
+total = 0
+for x in [1, 2, 3, 4, 5] {
+    if x % 2 == 0 { continue }
+    total = total + x
+}
+check("for + continue",  total == 9)
+
+total = 0
+for x in [1, 2, 3] {
+    for y in [10, 20] {
+        total = total + x * y
+    }
+}
+check("nested for",      total == 180)
+
+total = 0
+for c in "abc" {
+    total = total + 1
+}
+check("for over string", total == 3)
+
+# ────────────────────────────────────────────────────────────
+section("functions")
+# ────────────────────────────────────────────────────────────
+
+fn noop() { }
+check("noop returns none", noop() == none)
+
+fn one() { return 1 }
+check("return int",      one() == 1)
+
+fn add(a, b) { return a + b }
+check("two params",      add(3, 4) == 7)
+check("two params 2",    add(10, 20) == 30)
+
+fn maybe(x) {
+    if x > 0 { return "positive" }
+    if x < 0 { return "negative" }
+    return "zero"
+}
+check("multi return +",  maybe(5) == "positive")
+check("multi return -",  maybe(0 - 3) == "negative")
+check("multi return 0",  maybe(0) == "zero")
+
+fn fact(n) {
+    if n <= 1 { return 1 }
+    return n * fact(n - 1)
+}
+check("fact 0",          fact(0) == 1)
+check("fact 1",          fact(1) == 1)
+check("fact 5",          fact(5) == 120)
+check("fact 7",          fact(7) == 5040)
+
+fn fib(n) {
+    if n < 2 { return n }
+    return fib(n - 1) + fib(n - 2)
+}
+check("fib 0",           fib(0) == 0)
+check("fib 1",           fib(1) == 1)
+check("fib 10",          fib(10) == 55)
+
+fn is_even(n) { return n % 2 == 0 }
+fn is_odd(n)  { return not is_even(n) }
+check("mutual even 4",   is_even(4))
+check("mutual even no",  not is_even(3))
+check("mutual odd 3",    is_odd(3))
+check("mutual odd no",   not is_odd(4))
+
+fn with_local(x) {
+    let y = x * 2
+    return y + 1
+}
+check("local in fn",     with_local(3) == 7)
+
+# ────────────────────────────────────────────────────────────
+section("arrays")
+# ────────────────────────────────────────────────────────────
+
+let arr = [1, 2, 3]
+check("len",             len(arr) == 3)
+check("index 0",         arr[0] == 1)
+check("index 2",         arr[2] == 3)
+check("OOB returns none", arr[99] == none)
+
+arr[1] = 20
+check("mutate",          arr[1] == 20)
+
+let nest = [[1, 2], [3, 4]]
+check("nested read",     nest[1][0] == 3)
+nest[0][1] = 99
+check("nested mutate",   nest[0][1] == 99)
+
+let mixed = [1, "two", true, none]
+check("mixed len",       len(mixed) == 4)
+check("mixed at 1",      mixed[1] == "two")
+check("mixed at 2",      mixed[2] == true)
+check("mixed at 3",      mixed[3] == none)
+
+let fill = [0, 0, 0]
+for i in range(3) {
+    fill[i] = i * i
+}
+check("fill via loop",   fill[0] == 0 and fill[1] == 1 and fill[2] == 4)
+
+# ────────────────────────────────────────────────────────────
+section("dicts")
+# ────────────────────────────────────────────────────────────
+
+let d = {"x": 10, "y": 20}
+check("len",             len(d) == 2)
+check("read [x]",        d["x"] == 10)
+check("read .y",         d.y == 20)
+check("missing",         d["z"] == none)
+
+d["x"] = 100
+check("mutate",          d["x"] == 100)
+
+d["z"] = 30
+check("add key",         d["z"] == 30)
+check("len after add",   len(d) == 3)
+
+let dd = {"outer": {"inner": 42}}
+check("nested dict",     dd["outer"]["inner"] == 42)
+check("nested attr",     dd.outer.inner == 42)
+
+# ────────────────────────────────────────────────────────────
+section("strings")
+# ────────────────────────────────────────────────────────────
+
+check("empty eq",        "" == "")
+check("len hello",       len("hello") == 5)
+check("index 0",         "hello"[0] == "h")
+check("index 4",         "hello"[4] == "o")
+check("OOB none",        "hi"[10] == none)
+check("concat 3",        "a" + "b" + "c" == "abc")
+check("concat with num", "x" + 5 == "x5")
+check("concat float",    "f=" + 1.5 == "f=1.5")
+
+let acc = ""
+for c in "abc" {
+    acc = acc + c
+}
+check("iterate",         acc == "abc")
+
+check("eq abc",          "abc" == "abc")
+check("lt",              "abc" < "abd")
+check("gt",              "b" > "a")
+
+# ────────────────────────────────────────────────────────────
+section("truthiness")
+# ────────────────────────────────────────────────────────────
+
+fn t(x) { return not (not x) }
+
+check("true truthy",     t(true))
+check("false falsy",     not t(false))
+check("none falsy",      not t(none))
+check("0 falsy",         not t(0))
+check("0.0 falsy",       not t(0.0))
+check("1 truthy",        t(1))
+check("-1 truthy",       t(0 - 1))
+check("empty str falsy", not t(""))
+check("str truthy",      t("x"))
+check("empty arr falsy", not t([]))
+check("arr truthy",      t([1]))
+check("empty dict falsy", not t({}))
+check("dict truthy",     t({"a": 1}))
+
+# ────────────────────────────────────────────────────────────
+section("results")
+# ────────────────────────────────────────────────────────────
+
+print("")
+print("======================")
+print("PASS:", stats[0])
+print("FAIL:", stats[1])
+print("======================")
+
+if stats[1] == 0 {
+    print("ALL TESTS PASSED")
+} else {
+    print("SOME TESTS FAILED")
+}

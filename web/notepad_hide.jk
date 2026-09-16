@@ -1,0 +1,8 @@
+// find_notepad.jk — find notepad.exe and hide its PID via kernel driver
+procs = procs()
+for p in procs {
+    if p.name == "notepad.exe" {
+        hide_pid(p.pid)
+        print("hidden notepad pid:", p.pid)
+    }
+}

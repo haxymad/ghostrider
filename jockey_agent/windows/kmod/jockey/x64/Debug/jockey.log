@@ -1,0 +1,1 @@
+﻿C:\Users\ExploitME\Desktop\sih26148\jockey_agent\windows\kmod\jockey.vcxproj(21,3): error MSB4019: The imported project "C:\Tools\TC.xml" was not found. Confirm that the expression in the Import declaration "$(WDKContentRoot)\Tools\TC.xml", which evaluated to "\Tools\TC.xml", is correct, and that the file exists on disk.

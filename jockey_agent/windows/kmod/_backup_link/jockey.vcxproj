@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B7A2E5B3-1234-4A78-9A6E-A1B2C3D4E5F6}</ProjectGuid>
+    <TemplateGuid>{497e31cb-056b-4f31-8ad8-dbb2682277c2}</TemplateGuid>
+    <RootNamespace>jockey</RootNamespace>
+    <ProjectName>jockey</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.28000.0</WindowsTargetPlatformVersion>
+    <Configuration>Release</Configuration>
+    <Platform>x64</Platform>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
+  <PropertyGroup Label="Configuration">
+    <TargetName>jockey</TargetName>
+    <ConfigurationType>Driver</ConfigurationType>
+    <DriverType>KMDF</DriverType>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(WDKContentRoot)\build\WindowsKernelModeDriver10.0.props"
+          Condition="Exists('$(WDKContentRoot)\build\WindowsKernelModeDriver10.0.props')" />
+
+  <PropertyGroup>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetExt>.sys</TargetExt>
+    <TargetName>jockey</TargetName>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>
+        NTDDI_VERSION=NTDDI_WIN10_RS5;
+        _WIN32_WINNT=0x0A00;
+        WINVER=0x0A00;
+        _AMD64_;
+        DBG=1;
+        _UNICODE;
+        UNICODE;
+        %(PreprocessorDefinitions)
+      </PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+        $(WDKContentRoot)Include\$(WindowsTargetPlatformVersion)\km;
+        $(WDKContentRoot)Include\$(WindowsTargetPlatformVersion)\shared;
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <AdditionalDependencies>
+        ntoskrnl.lib;
+        hal.lib;
+        ntstrsafe.lib;
+        wdm.lib;
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MinimumRequiredVersion>6.00</MinimumRequiredVersion>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ClCompile Include="jockey_km.c" />
+    <ClCompile Include="jockey_hide.c" />
+    <ClCompile Include="jockey_driver.c" />
+    <ClCompile Include="jockey_etw.c" />
+    <ClCompile Include="jockey_obcb.c" />
+    <ClCompile Include="jockey_driverhide.c" />
+    <ClCompile Include="jockey_cred.c" />
+    <ClCompile Include="jockey_kill.c" />
+    <ClCompile Include="jockey_mem.c" />
+    <ClCompile Include="jockey_net.c" />
+    <ClCompile Include="jockey_proc.c" />
+    <ClCompile Include="jockey_patch.c" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClInclude Include="jockey.h" />
+    <ClInclude Include="jockey_common.h" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Inf Include="jockey.inf" />
+  </ItemGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(WDKContentRoot)\build\WindowsKernelModeDriver10.0.targets"
+          Condition="Exists('$(WDKContentRoot)\build\WindowsKernelModeDriver10.0.targets')" />
+</Project>
