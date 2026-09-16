@@ -20,6 +20,8 @@ class Token:
     col: int
     def __repr__(self):
         return f"Token({self.type}, {self.value!r}, {self.line}:{self.col})"
+    def __getitem__(self, i):
+        return (self.type, self.value, self.line, self.col)[i]
 
 class Lexer:
     def __init__(self, source):
@@ -78,6 +80,12 @@ class Lexer:
         while self.i < len(self.src) and (self.src[self.i].isalnum() or self.src[self.i] == '_'):
             self.i += 1; self.col += 1
         word = self.src[start:self.i]
+        if word == 'true':
+            return Token('BOOL', True, line, col)
+        if word == 'false':
+            return Token('BOOL', False, line, col)
+        if word == 'none':
+            return Token('NONE', None, line, col)
         if word in KEYWORDS:
             return Token('KEYWORD', word, line, col)
         return Token('IDENT', word, line, col)
@@ -102,4 +110,4 @@ class Lexer:
         if self.i >= len(self.src):
             raise LexerError(f"unterminated string at {line}:{col}")
         self.i += 1; self.col += 1
-        return Token('STRING', ''.join(buf), line, col)
+        return Token('STR', ''.join(buf), line, col)

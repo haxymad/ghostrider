@@ -23,6 +23,11 @@ OP = {
     'BUILD_ARRAY': 29, 'BUILD_DICT': 30,
     'JUMP': 31, 'JUMP_IF_FALSE': 32, 'JUMP_IF_TRUE': 33,
     'NOP': 34, 'INDEX': 35, 'SET_INDEX': 36,
+    # metamorphic opcodes
+    'PUSH_VAR': 37, 'POP_VAR': 38,
+    'ADD2': 39, 'SUB2': 40, 'MUL2': 41, 'DIV2': 42, 'CMP2': 43,
+    'ADD_CONST': 44, 'SUB_CONST': 45,
+    'LOAD_CONST': 46, 'CALL_BUILTIN': 47,
 }
 
 
@@ -64,10 +69,10 @@ class Frame:
 class JockeyVM:
     def __init__(self, program):
         self.prog = program
-        self.consts = program['constants']
-        self.var_names = program['var_names']
+        self.consts = program.get('constants', [])
+        self.var_names = program.get('var_names', [])
         self.functions = program.get('functions', {})
-        self.main = program['main']['code']
+        self.main = program.get('main', {}).get('code', [])
 
         self.stack = []
         self.globals = {}
@@ -77,6 +82,9 @@ class JockeyVM:
         self.locals = self.globals
 
         self.builtins = self._make_builtins()
+        extra = program.get('_extra_builtins', {})
+        if extra:
+            self.builtins.update(extra)
 
     # ------------------------------------------------------------------
     # Helpers
@@ -363,6 +371,50 @@ class JockeyVM:
             idx = self.stack.pop()
             obj = self.stack.pop()
             self._set_index(obj, idx, val)
+            self.pc += 1
+
+        # ── metamorphic opcodes ─────────────────────────────────────────
+        elif op == 37:   # PUSH_VAR
+            self.stack.append(self.vars.get(self.code[self.pc][1], 0))
+            self.pc += 1
+        elif op == 38:   # POP_VAR
+            self.vars[self.code[self.pc][1]] = self.stack.pop()
+            self.pc += 1
+        elif op == 39:   # ADD2 (pop two vars, push sum)
+            self.stack.append(self.vars[self.code[self.pc][1]] + self.vars[self.code[self.pc][2]])
+            self.pc += 1
+        elif op == 40:   # SUB2
+            self.stack.append(self.vars[self.code[self.pc][1]] - self.vars[self.code[self.pc][2]])
+            self.pc += 1
+        elif op == 41:   # MUL2
+            self.stack.append(self.vars[self.code[self.pc][1]] * self.vars[self.code[self.pc][2]])
+            self.pc += 1
+        elif op == 42:   # DIV2
+            self.stack.append(self.vars[self.code[self.pc][1]] / self.vars[self.code[self.pc][2]])
+            self.pc += 1
+        elif op == 43:   # CMP2 (comparison, pushes 1 or 0)
+            a = self.vars[self.code[self.pc][1]]
+            b = self.vars[self.code[self.pc][2]]
+            self.stack.append(1 if a == b else 0)
+            self.pc += 1
+        elif op == 44:   # ADD_CONST (add constant to top of stack)
+            self.stack[-1] = self.stack[-1] + self.code[self.pc][1]
+            self.pc += 1
+        elif op == 45:   # SUB_CONST
+            self.stack[-1] = self.stack[-1] - self.code[self.pc][1]
+            self.pc += 1
+        elif op == 46:   # LOAD_CONST (encrypted constant onto stack)
+            self.stack.append(self.constants[self.code[self.pc][1]])
+            self.pc += 1
+        elif op == 47:   # CALL_BUILTIN (name, arity)
+            arity = self.code[self.pc][2]
+            args = list(reversed([self.stack.pop() for _ in range(arity)]))
+            func_name = self.code[self.pc][1]
+            if func_name in self.builtins:
+                result = self.builtins[func_name](*args)
+                self.stack.append(result)
+            else:
+                raise RuntimeError_(f"unknown builtin: {func_name}")
             self.pc += 1
 
         else:
@@ -802,6 +854,73 @@ class JockeyVM:
             k = key if key else b'\x00'
             return bytes([data[i] ^ k[i % len(k)] for i in range(len(data))])
         B['crypto_xor'] = b_crypto_xor
+
+        def b_crypto_xor_str(enc_data, key):
+            """Decrypt a XOR+rotate encrypted string. Used by polymorphic decryptors."""
+            if isinstance(enc_data, (bytes, bytearray)):
+                data = bytes(enc_data)
+            elif isinstance(enc_data, str):
+                data = enc_data.encode('utf-8')
+            else:
+                raise RuntimeError_("crypto_xor_str: data must be bytes or string")
+            if isinstance(key, bool):
+                raise RuntimeError_("crypto_xor_str: key must be int or bytes")
+            if isinstance(key, int):
+                key = bytes([key & 0xff])
+            elif isinstance(key, str):
+                key = key.encode('utf-8')
+            # reverse: sub 0x33, xor, then rotate left by key bytes
+            step1 = bytes(((b - 0x33) & 0xFF ^ key[i % len(key)])
+                          for i, b in enumerate(data))
+            # rotate left by len(key) positions
+            rot = len(key) % len(step1) if step1 else 0
+            result = step1[rot:] + step1[:rot] if rot else step1
+            return result.decode('utf-8', errors='replace')
+        B['crypto_xor_str'] = b_crypto_xor_str
+
+        def b_crypto_decrypt_addsub(enc_data, key, rot):
+            """Additive-subtractive mask decryptor."""
+            if isinstance(enc_data, (bytes, bytearray)):
+                data = bytes(enc_data)
+            elif isinstance(enc_data, str):
+                data = enc_data.encode('utf-8')
+            else:
+                raise RuntimeError_("crypto_decrypt_addsub: data must be bytes or string")
+            if isinstance(key, bool):
+                raise RuntimeError_("crypto_decrypt_addsub: key must be int")
+            k = key & 0xff
+            r = int(rot) & 0xFF
+            # reverse the mask: sub 0x33, not, add key, sub key
+            step1 = bytes(((b - 0x33) & 0xFF ^ k) for b in data)
+            # rotate left by r
+            rot = r % len(step1) if step1 else 0
+            result = step1[rot:] + step1[:rot] if rot else step1
+            return result.decode('utf-8', errors='replace')
+        B['crypto_decrypt_addsub'] = b_crypto_decrypt_addsub
+
+        def b_crypto_decrypt_twopass(enc_data, key):
+            """Two-pass shift-XOR decryptor."""
+            if isinstance(enc_data, (bytes, bytearray)):
+                data = bytes(enc_data)
+            elif isinstance(enc_data, str):
+                data = enc_data.encode('utf-8')
+            else:
+                raise RuntimeError_("crypto_decrypt_twopass: data must be bytes or string")
+            if isinstance(key, bool):
+                raise RuntimeError_("crypto_decrypt_twopass: key must be int")
+            k = key & 0xff
+            # first pass: xor with (key << 1) & 0xFF
+            step1 = bytes((b ^ ((k << 1) & 0xFF)) for b in data)
+            # second pass: xor with (key >> 1) & 0xFF
+            step2 = bytes((b ^ ((k >> 1) & 0xFF)) for b in step1)
+            # final: sub 0x33
+            step3 = bytes(((b - 0x33) & 0xFF) for b in step2)
+            # rotate left by key & 0xF
+            rot = k & 0xF
+            rot = rot % len(step3) if step3 else 0
+            result = step3[rot:] + step3[:rot] if rot else step3
+            return result.decode('utf-8', errors='replace')
+        B['crypto_decrypt_twopass'] = b_crypto_decrypt_twopass
 
         def b_crypto_b64_encode(d):
             if isinstance(d, str):

@@ -37,10 +37,44 @@ def write_bytes(path, data):
         f.write(data)
 
 
-def compile_source(source):
+def compile_source(source, obfuscate=False, seed=None):
+    if obfuscate:
+        import obfuscator
+        import random as _random
+        if seed is None:
+            seed = _random.randbytes(16)
+        # Phase 1: encrypt string literals before parsing
+        rng = _random.Random(obfuscator._jockey_hash(seed))
+        string_table = obfuscator.StringTable(rng)
+        source = obfuscator.compile_string_replacements(source, string_table)
+        # inject __decrypt into builtins
+        decrypt_builtins = obfuscator.inject_decrypt_builtins(string_table)
+        # store for later injection into runtime
+        extra_builtins = decrypt_builtins
+    else:
+        extra_builtins = {}
+        string_table = None
+        seed = None
+
     tokens = Lexer(source).tokenize()
     program = Parser(tokens).parse_program()
-    return Emitter().compile(program)
+    program = Emitter().compile(program)
+
+    if obfuscate and program:
+        # Phase 2: metamorphic bytecode transform
+        rng2 = _random.Random(obfuscator._jockey_hash(seed + b':meta'))
+        import hashlib as _hl
+        meta_seed = seed + _hl.sha256(str(rng2.randint(0, 999999)).encode()).digest()[:4]
+        transformed_main = obfuscator.run_metamorphic(program['main']['code'], meta_seed)
+        program['main']['code'] = transformed_main
+        # transform function bodies too
+        for fn_name, fn_info in program.get('functions', {}).items():
+            fn_info['code'] = obfuscator.run_metamorphic(fn_info['code'], meta_seed + fn_name.encode())
+        # attach string table metadata for runtime
+        program['_string_table'] = string_table.entries if string_table else []
+        program['_extra_builtins'] = extra_builtins
+
+    return program
 
 
 def json_safe(obj):
