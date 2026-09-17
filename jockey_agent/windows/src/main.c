@@ -8,17 +8,30 @@
 int agent_main(int argc, char **argv);
 int agent_c2_main(int argc, char **argv);
 
+#include <windows.h>
+
 static uint8_t *read_all(const char *path, size_t *out_len) {
-    FILE *f = fopen(path, "rb");
-    if (!f) return NULL;
-    fseek(f, 0, SEEK_END);
-    long n = ftell(f);
-    fseek(f, 0, SEEK_SET);
-    if (n <= 0) { fclose(f); return NULL; }
-    uint8_t *buf = malloc((size_t)n);
-    size_t got = fread(buf, 1, (size_t)n, f);
-    fclose(f);
-    if (got != (size_t)n) { free(buf); return NULL; }
+    /* resolve relative to executable directory */
+    char exe_dir[MAX_PATH];
+    DWORD n = GetModuleFileNameA(NULL, exe_dir, MAX_PATH);
+    if (n > 0 && n < MAX_PATH) {
+        char *slash = strrchr(exe_dir, '\\');
+        if (slash) *slash = '\0';
+    }
+    char full[MAX_PATH];
+    snprintf(full, MAX_PATH, "%s\\%s", exe_dir, path);
+
+    HANDLE h = CreateFileA(full, GENERIC_READ, FILE_SHARE_READ, NULL,
+                           OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (h == INVALID_HANDLE_VALUE) return NULL;
+
+    DWORD sz = GetFileSize(h, NULL);
+    if (sz == INVALID_FILE_SIZE) { CloseHandle(h); return NULL; }
+    uint8_t *buf = malloc(sz);
+    DWORD got = 0;
+    ReadFile(h, buf, sz, &got, NULL);
+    CloseHandle(h);
+    if (got != sz) { free(buf); return NULL; }
     *out_len = got;
     return buf;
 }

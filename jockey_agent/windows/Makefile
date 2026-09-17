@@ -14,6 +14,7 @@ STRAP = $(OUTDIR)\jockstrap.exe
 
 # ── secondary target: runner (VM engine) ──────────────────────────────────
 RUNNER_SRCS = src\jockey_runner.c src\vm.c src\loader.c src\value.c
+RUNNER_SRCS += src\builtins.c src\builtins\stub.c
 RUNNER_OBJS = $(patsubst %.c,$(BUILDDIR)\%.obj,$(notdir $(RUNNER_SRCS)))
 
 RUNNER = $(OUTDIR)\jockey_runner.exe
@@ -111,6 +112,9 @@ $(BUILDDIR)\%.obj: src\builtins\crypto.c
 	$(CC) $(CFLAGS) /c /Fo$@ $<
 
 $(BUILDDIR)\%.obj: src\builtins\data.c
+	$(CC) $(CFLAGS) /c /Fo$@ $<
+
+$(BUILDDIR)\%.obj: src\builtins\stub.c
 	$(CC) $(CFLAGS) /c /Fo$@ $<
 
 $(BUILDDIR)\%.obj: src\platform\windows\platform.c

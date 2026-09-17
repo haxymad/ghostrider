@@ -1,7 +1,0 @@
-print("kernel:", kernel_version())
-print("uid before:", system_username())
-print("get_root:", kernel_get_root())
-print("uid after:", system_username())
-let me = process_self_pid()
-print("pid:", me)
-print("hide:", kernel_hide_pid(me))

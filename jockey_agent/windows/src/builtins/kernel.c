@@ -6,12 +6,16 @@
  */
 
 #include <windows.h>
+#include <stdlib.h>
 #include <psapi.h>
+#include <stdlib.h>
 #include "jky_builtins.h"
 #include "jky_platform.h"
 #include "jky_kernel_bridge.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 #pragma comment(lib, "psapi.lib")
 
 static BuiltinResult bi_get_root(VM *vm, Value *a, int c, Value *out)

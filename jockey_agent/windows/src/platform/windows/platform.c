@@ -1,14 +1,13 @@
 #include "jky_platform.h"
+#include <windows.h>
+#include <winsock2.h>
+#include <psapi.h>
+#include <tlhelp32.h>
+#include <wincrypt.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#include <iphlpapi.h>
-#include <psapi.h>
-#include <tlhelp32.h>
-#include <wincrypt.h>
 #include <sys/stat.h>
 
 #pragma comment(lib, "ws2_32.lib")

@@ -5,9 +5,13 @@
 #include "jky_builtins.h"
 #include "jky_platform.h"
 #include <windows.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 #include <time.h>
+#include <stdlib.h>
 static BuiltinResult bi_platform(VM *vm, Value *a, int c, Value *out)
 {
     (void)vm; (void)a; (void)c;

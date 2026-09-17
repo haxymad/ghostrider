@@ -41,6 +41,20 @@ typedef enum {
     OP_NOP           = 34,
     OP_INDEX         = 35,
     OP_SET_INDEX     = 36,
+    OP_PUSH_VAR      = 37,
+    OP_POP_VAR       = 38,
+    OP_ADD2          = 39,
+    OP_SUB2          = 40,
+    OP_MUL2          = 41,
+    OP_DIV2          = 42,
+    OP_CMP2          = 43,
+    OP_ADD_CONST     = 44,
+    OP_SUB_CONST     = 45,
+    OP_LOAD_CONST    = 46,
+    OP_CALL_BUILTIN  = 47,
+    OP_SHL           = 48,
+    OP_SHR           = 49,
+    OP_DUP           = 50,
     OP__COUNT
 } Opcode;
 

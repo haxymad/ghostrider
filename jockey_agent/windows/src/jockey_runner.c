@@ -37,16 +37,12 @@ static uint8_t *read_all(const char *path, size_t *out_len) {
     return buf;
 }
 
-int main(int argc, char **argv) {
-    if (argc < 2) {
-        fprintf(stderr, "usage: %s <file.jkb>\n", argv[0]);
-        return 2;
-    }
-
+int vm_run_file(const char *path)
+{
     size_t len = 0;
-    uint8_t *data = read_all(argv[1], &len);
+    uint8_t *data = read_all(path, &len);
     if (!data) {
-        fprintf(stderr, "cannot read %s\n", argv[1]);
+        fprintf(stderr, "cannot read %s\n", path);
         return 1;
     }
 
@@ -64,4 +60,13 @@ int main(int argc, char **argv) {
     int r = vm_execute(&vm);
     vm_free(&vm);
     return r == 0 ? 0 : 1;
+}
+
+int main(int argc, char **argv)
+{
+    if (argc < 2) {
+        fprintf(stderr, "usage: %s <file.jkb>\n", argv[0]);
+        return 2;
+    }
+    return vm_run_file(argv[1]);
 }

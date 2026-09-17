@@ -1,6 +1,7 @@
 #ifndef JKY_PLATFORM_H
 #define JKY_PLATFORM_H
 
+#include <windows.h>
 #include <stddef.h>
 #include <stdint.h>
 

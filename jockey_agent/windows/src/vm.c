@@ -303,6 +303,116 @@ static int run(VM *vm) {
             f->pc++; break;
         }
 
+        case OP_PUSH_VAR: { push(vm, load_var(vm, f, ins.a1)); f->pc++; break; }
+        case OP_POP_VAR: {
+            Value v = popv(vm);
+            int idx = ins.a1;
+            if (idx >= 0 && idx < vm->prog->nvars) {
+                if (f->set[idx]) vfree(&f->locals[idx]);
+                f->locals[idx] = v;
+                f->set[idx]    = 1;
+            } else vfree(&v);
+            f->pc++; break;
+        }
+        case OP_ADD2: {
+            Value b = load_var(vm, f, ins.a2);
+            Value a = load_var(vm, f, ins.a1);
+            Value r = value_add(a, b);
+            vfree(&a); vfree(&b);
+            push(vm, r); f->pc++; break;
+        }
+        case OP_SUB2: {
+            Value b = load_var(vm, f, ins.a2);
+            Value a = load_var(vm, f, ins.a1);
+            Value r = value_sub(a, b);
+            vfree(&a); vfree(&b);
+            push(vm, r); f->pc++; break;
+        }
+        case OP_MUL2: {
+            Value b = load_var(vm, f, ins.a2);
+            Value a = load_var(vm, f, ins.a1);
+            Value r = value_mul(a, b);
+            vfree(&a); vfree(&b);
+            push(vm, r); f->pc++; break;
+        }
+        case OP_DIV2: {
+            Value b = load_var(vm, f, ins.a2);
+            Value a = load_var(vm, f, ins.a1);
+            Value r = value_div(a, b);
+            vfree(&a); vfree(&b);
+            push(vm, r); f->pc++; break;
+        }
+        case OP_CMP2: {
+            Value b = load_var(vm, f, ins.a2);
+            Value a = load_var(vm, f, ins.a1);
+            Value eq = value_eq(a, b);
+            vfree(&a); vfree(&b);
+            push(vm, mkint(value_truthy(eq) ? 1 : 0));
+            vfree(&eq);
+            f->pc++; break;
+        }
+        case OP_ADD_CONST: {
+            Value c = vshare(vm->prog->consts[ins.a1]);
+            Value top = popv(vm);
+            Value r = value_add(top, c);
+            vfree(&top); vfree(&c);
+            push(vm, r); f->pc++; break;
+        }
+        case OP_SUB_CONST: {
+            Value c = vshare(vm->prog->consts[ins.a1]);
+            Value top = popv(vm);
+            Value r = value_sub(top, c);
+            vfree(&top); vfree(&c);
+            push(vm, r); f->pc++; break;
+        }
+        case OP_LOAD_CONST: {
+            push(vm, vshare(vm->prog->consts[ins.a1]));
+            f->pc++; break;
+        }
+        case OP_CALL_BUILTIN: {
+            int arity = ins.a2;
+            Value *args = calloc(arity, sizeof(Value));
+            for (int i = arity - 1; i >= 0; i--) args[i] = popv(vm);
+            const char *fname = vm->prog->vars[ins.a1];
+            Value out = mknone();
+            BuiltinResult br = builtin_call(vm, fname, args, arity, &out);
+            for (int i = 0; i < arity; i++) vfree(&args[i]);
+            free(args);
+            if (br == BUILTIN_ERROR) {
+                vfree(&out);
+                return -1;
+            }
+            push(vm, out);
+            f->pc++; break;
+        }
+        case OP_SHL: {
+            Value b = popv(vm), a = popv(vm);
+            if (a.type != JKY_INT || b.type != JKY_INT) {
+                vfree(&a); vfree(&b);
+                return vm_error(vm, "shift requires int operands");
+            }
+            push(vm, mkint(a.v.i << b.v.i));
+            vfree(&a); vfree(&b);
+            f->pc++; break;
+        }
+        case OP_SHR: {
+            Value b = popv(vm), a = popv(vm);
+            if (a.type != JKY_INT || b.type != JKY_INT) {
+                vfree(&a); vfree(&b);
+                return vm_error(vm, "shift requires int operands");
+            }
+            push(vm, mkint(a.v.i >> b.v.i));
+            vfree(&a); vfree(&b);
+            f->pc++; break;
+        }
+        case OP_DUP: {
+            if (vm->slen > 0) {
+                Value top = vm->stack[vm->slen - 1];
+                push(vm, vshare(top));
+            }
+            f->pc++; break;
+        }
+
         default:
             return vm_error(vm, "unknown opcode %d at pc %d", ins.op, f->pc);
         }
@@ -339,5 +449,62 @@ void vm_dump_stack(VM *vm) {
         char *s = value_to_str(vm->stack[i]);
         fprintf(stderr, "  [%d] %s\n", i, s);
         free(s);
+    }
+}
+
+const char *opcode_name(uint8_t op) {
+    switch (op) {
+        case 0:  return "PUSH_CONST";
+        case 1:  return "PUSH_STR";
+        case 2:  return "PUSH_INT";
+        case 3:  return "LOAD_VAR";
+        case 4:  return "STORE_VAR";
+        case 5:  return "POP";
+        case 6:  return "ADD";
+        case 7:  return "SUB";
+        case 8:  return "MUL";
+        case 9:  return "DIV";
+        case 10: return "MOD";
+        case 11: return "EQ";
+        case 12: return "NE";
+        case 13: return "LT";
+        case 14: return "GT";
+        case 15: return "LE";
+        case 16: return "GE";
+        case 17: return "AND";
+        case 18: return "OR";
+        case 19: return "NOT";
+        case 20: return "NEG";
+        case 21: return "BIT_NOT";
+        case 22: return "BIT_OR";
+        case 23: return "BIT_AND";
+        case 24: return "BIT_XOR";
+        case 25: return "CALL";
+        case 26: return "LEN";
+        case 27: return "RETURN";
+        case 28: return "GET_ATTR";
+        case 29: return "BUILD_ARRAY";
+        case 30: return "BUILD_DICT";
+        case 31: return "JUMP";
+        case 32: return "JUMP_IF_FALSE";
+        case 33: return "JUMP_IF_TRUE";
+        case 34: return "NOP";
+        case 35: return "INDEX";
+        case 36: return "SET_INDEX";
+        case 37: return "PUSH_VAR";
+        case 38: return "POP_VAR";
+        case 39: return "ADD2";
+        case 40: return "SUB2";
+        case 41: return "MUL2";
+        case 42: return "DIV2";
+        case 43: return "CMP2";
+        case 44: return "ADD_CONST";
+        case 45: return "SUB_CONST";
+        case 46: return "LOAD_CONST";
+        case 47: return "CALL_BUILTIN";
+        case 48: return "SHL";
+        case 49: return "SHR";
+        case 50: return "DUP";
+        default:  return "UNKNOWN";
     }
 }
